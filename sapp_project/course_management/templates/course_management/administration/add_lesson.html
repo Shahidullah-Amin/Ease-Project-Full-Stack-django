@@ -1,0 +1,33 @@
+{% extends 'course_management/administration/admin_home.html' %}
+{% load crispy_forms_tags %}
+
+{% block homecontent %}
+
+<div class="container" style="margin-bottom: 3rem;">
+    <h1 style="margin-left: 3rem;">
+        Add Lesson
+    </h1>
+    <form action="" enctype="multipart/form-data" method="POST" style="padding: 3rem; padding-top: 1rem;padding-bottom: 6rem;">
+
+        {% csrf_token %}
+        {{form|crispy}}
+        <div style="margin-top: 2rem;">
+            <h3>Course Structure</h3>
+        </div>
+        <div style="border: 1px solid black; margin-top: 1rem; padding: 2rem; border-radius: 15px; margin-bottom: 3rem;">
+            {{structure_form|crispy}}
+        </div>
+
+        <div style="display: flex; justify-content: right;">
+            <button class="btn btn-primary" style="width: 20rem; height: 3rem;" type="submit">
+                <i class="bi bi-plus-lg"></i> 
+                Add Lesson 
+            </button>
+        </div>
+
+
+    </form>
+
+</div>
+
+{% endblock %}

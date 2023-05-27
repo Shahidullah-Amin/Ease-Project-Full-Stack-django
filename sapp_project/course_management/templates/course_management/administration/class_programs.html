@@ -1,0 +1,278 @@
+{% extends 'course_management/administration/admin_home.html' %}
+
+
+{% block homecontent %}
+
+<div style="padding: 3rem; padding-top: 0%; padding-bottom: 5rem;">
+    <h2 style="margin: 1rem; margin-left: 0%;">Software Engineering class I</h2>
+    <table class="table table-bordered table-hover">
+        <thead>
+            <tr>
+                <th scope="col">Lecture Time</th>
+                {% for d in lecture_days %}
+                <th scope="col">{{d|capfirst}}</th>
+                {% endfor %}
+
+            </tr>
+        </thead>
+        <tbody>
+
+            {% for start_time , end_time in lecture_times %}
+            <tr>
+                <th scope="row">
+                    <div class="monospaced-text">{{start_time}} - {{end_time}}</div>
+                </th>
+                <td name="schedule_cell">
+                    {% for room in class_room1 %}
+                    {% if room.day == 'monday' and room.lecture_time == start_time|add:'-'|add:end_time %}
+                    <div>{{room.course}}</div>
+                    <div style="font-weight: bold;">{{room.room_no}}</div>
+                    {% endif %}
+                    {% endfor %}
+                </td>
+                <td name="schedule_cell">
+                    {% for room in class_room1 %}
+                    {% if room.day == 'tuesday' and room.lecture_time == start_time|add:'-'|add:end_time %}
+                    <div>{{room.course}}</div>
+                    <div style="font-weight: bold;">{{room.room_no}}</div>
+                    {% endif %}
+                    {% endfor %}
+                </td>
+                <td name="schedule_cell">
+                    {% for room in class_room1 %}
+                    {% if room.day == 'wednesday' and room.lecture_time == start_time|add:'-'|add:end_time %}
+                    <div>{{room.course}}</div>
+                    <div style="font-weight: bold;">{{room.room_no}}</div>
+                    {% endif %}
+                    {% endfor %}
+                </td>
+                <td name="schedule_cell">
+                    {% for room in class_room1 %}
+                    {% if room.day == 'thursday' and room.lecture_time == start_time|add:'-'|add:end_time %}
+                    <div>{{room.course}}</div>
+                    <div style="font-weight: bold;">{{room.room_no}}</div>
+                    {% endif %}
+                    {% endfor %}
+                </td>
+                <td name="schedule_cell">
+                    {% for room in class_room1 %}
+                    {% if room.day == 'friday' and room.lecture_time == start_time|add:'-'|add:end_time %}
+                    <div>{{room.course}}</div>
+                    <div style="font-weight: bold;">{{room.room_no}}</div>
+                    {% endif %}
+                    {% endfor %}
+                </td>
+            </tr>
+            {% endfor %}
+
+        </tbody>
+    </table>
+</div>
+<div style="padding: 3rem; padding-top: 0%; padding-bottom: 5rem;">
+    <h2 style="margin: 1rem; margin-left: 0%;">Software Engineering class II</h2>
+    <table class="table table-bordered table-hover">
+        <thead>
+            <tr>
+                <th scope="col">Lecture Time</th>
+                {% for d in lecture_days %}
+                <th scope="col">{{d|capfirst}}</th>
+                {% endfor %}
+
+            </tr>
+        </thead>
+        <tbody>
+
+            {% for start_time , end_time in lecture_times %}
+            <tr>
+                <th scope="row">
+                    <div class="monospaced-text">{{start_time}} - {{end_time}}</div>
+                </th>
+                <td name="schedule_cell">
+                    {% for room in class_room2 %}
+                    {% if room.day == 'monday' and room.lecture_time == start_time|add:'-'|add:end_time %}
+                    <div>{{room.course}}</div>
+                    <div style="font-weight: bold;">{{room.room_no}}</div>
+                    {% endif %}
+                    {% endfor %}
+                </td>
+                <td name="schedule_cell">
+                    {% for room in class_room2 %}
+                    {% if room.day == 'tuesday' and room.lecture_time == start_time|add:'-'|add:end_time %}
+                    <div>{{room.course}}</div>
+                    <div style="font-weight: bold;">{{room.room_no}}</div>
+                    {% endif %}
+                    {% endfor %}
+                </td>
+                <td name="schedule_cell">
+                    {% for room in class_room2 %}
+                    {% if room.day == 'wednesday' and room.lecture_time == start_time|add:'-'|add:end_time %}
+                    <div>{{room.course}}</div>
+                    <div style="font-weight: bold;">{{room.room_no}}</div>
+                    {% endif %}
+                    {% endfor %}
+                </td>
+                <td name="schedule_cell">
+                    {% for room in class_room2 %}
+                    {% if room.day == 'thursday' and room.lecture_time == start_time|add:'-'|add:end_time %}
+                    <div>{{room.course}}</div>
+                    <div style="font-weight: bold;">{{room.room_no}}</div>
+                    {% endif %}
+                    {% endfor %}
+                </td>
+                <td name="schedule_cell">
+                    {% for room in class_room2 %}
+                    {% if room.day == 'friday' and room.lecture_time == start_time|add:'-'|add:end_time %}
+                    <div>{{room.course}}</div>
+                    <div style="font-weight: bold;">{{room.room_no}}</div>
+                    {% endif %}
+                    {% endfor %}
+                </td>
+            </tr>
+            {% endfor %}
+
+        </tbody>
+    </table>
+</div>
+<div style="padding: 3rem; padding-top: 0%; padding-bottom: 5rem;">
+    <h2 style="margin: 1rem; margin-left: 0%;">Software Engineering class III</h2>
+    <table class="table table-bordered table-hover">
+        <thead>
+            <tr>
+                <th scope="col">Lecture Time</th>
+                {% for d in lecture_days %}
+                <th scope="col">{{d|capfirst}}</th>
+                {% endfor %}
+
+            </tr>
+        </thead>
+        <tbody>
+
+            {% for start_time , end_time in lecture_times %}
+            <tr>
+                <th scope="row">
+                    <div class="monospaced-text">{{start_time}} - {{end_time}}</div>
+                </th>
+                <td name="schedule_cell">
+                    {% for room in class_room3 %}
+                    {% if room.day == 'monday' and room.lecture_time == start_time|add:'-'|add:end_time %}
+                    <div>{{room.course}}</div>
+                    <div style="font-weight: bold;">{{room.room_no}}</div>
+                    {% endif %}
+                    {% endfor %}
+                </td>
+                <td name="schedule_cell">
+                    {% for room in class_room3 %}
+                    {% if room.day == 'tuesday' and room.lecture_time == start_time|add:'-'|add:end_time %}
+                    <div>{{room.course}}</div>
+                    <div style="font-weight: bold;">{{room.room_no}}</div>
+                    {% endif %}
+                    {% endfor %}
+                </td>
+                <td name="schedule_cell">
+                    {% for room in class_room3 %}
+                    {% if room.day == 'wednesday' and room.lecture_time == start_time|add:'-'|add:end_time %}
+                    <div>{{room.course}}</div>
+                    <div style="font-weight: bold;">{{room.room_no}}</div>
+                    {% endif %}
+                    {% endfor %}
+                </td>
+                <td name="schedule_cell">
+                    {% for room in class_room3 %}
+                    {% if room.day == 'thursday' and room.lecture_time == start_time|add:'-'|add:end_time %}
+                    <div>{{room.course}}</div>
+                    <div style="font-weight: bold;">{{room.room_no}}</div>
+                    {% endif %}
+                    {% endfor %}
+                </td>
+                <td name="schedule_cell">
+                    {% for room in class_room3 %}
+                    {% if room.day == 'friday' and room.lecture_time == start_time|add:'-'|add:end_time %}
+                    <div>{{room.course}}</div>
+                    <div style="font-weight: bold;">{{room.room_no}}</div>
+                    {% endif %}
+                    {% endfor %}
+                </td>
+            </tr>
+            {% endfor %}
+
+        </tbody>
+    </table>
+</div>
+<div style="padding: 3rem; padding-top: 0%; padding-bottom: 5rem;">
+    <h2 style="margin: 1rem; margin-left: 0%;">Software Engineering class IV</h2>
+    <table class="table table-bordered table-hover">
+        <thead>
+            <tr>
+                <th scope="col">Lecture Time</th>
+                {% for d in lecture_days %}
+                <th scope="col">{{d|capfirst}}</th>
+                {% endfor %}
+
+            </tr>
+        </thead>
+        <tbody>
+
+            {% for start_time , end_time in lecture_times %}
+            <tr>
+                <th scope="row">
+                    <div class="monospaced-text">{{start_time}} - {{end_time}}</div>
+                </th>
+                <td name="schedule_cell">
+                    {% for room in class_room4 %}
+                    {% if room.day == 'monday' and room.lecture_time == start_time|add:'-'|add:end_time %}
+                    <div>{{room.course}}</div>
+                    <div style="font-weight: bold;">{{room.room_no}}</div>
+                    {% endif %}
+                    {% endfor %}
+                </td>
+                <td name="schedule_cell">
+                    {% for room in class_room4 %}
+                    {% if room.day == 'tuesday' and room.lecture_time == start_time|add:'-'|add:end_time %}
+                    <div>{{room.course}}</div>
+                    <div style="font-weight: bold;">{{room.room_no}}</div>
+                    {% endif %}
+                    {% endfor %}
+                </td>
+                <td name="schedule_cell">
+                    {% for room in class_room4 %}
+                    {% if room.day == 'wednesday' and room.lecture_time == start_time|add:'-'|add:end_time %}
+                    <div>{{room.course}}</div>
+                    <div style="font-weight: bold;">{{room.room_no}}</div>
+                    {% endif %}
+                    {% endfor %}
+                </td>
+                <td name="schedule_cell">
+                    {% for room in class_room4 %}
+                    {% if room.day == 'thursday' and room.lecture_time == start_time|add:'-'|add:end_time %}
+                    <div>{{room.course}}</div>
+                    <div style="font-weight: bold;">{{room.room_no}}</div>
+                    {% endif %}
+                    {% endfor %}
+                </td>
+                <td name="schedule_cell">
+                    {% for room in class_room4 %}
+                    {% if room.day == 'friday' and room.lecture_time == start_time|add:'-'|add:end_time %}
+                    <div>{{room.course}}</div>
+                    <div style="font-weight: bold;">{{room.room_no}}</div>
+                    {% endif %}
+                    {% endfor %}
+                </td>
+            </tr>
+            {% endfor %}
+
+        </tbody>
+    </table>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<script>
+    for (element of document.getElementsByName('schedule_cell')) {
+        if (element.innerText == '') {
+            element.innerText = '--'
+        }
+    }
+</script>
+
+
+{% endblock %}

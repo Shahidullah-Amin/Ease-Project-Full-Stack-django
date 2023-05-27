@@ -1,0 +1,73 @@
+{% extends 'course_management/home.html' %}
+{%load crispy_forms_tags %}
+
+
+{% block homecontent %}
+
+<h4 style="margin-left: 3rem ;">Add Week Topic</h4>
+
+<div
+    style="padding: 1rem; padding-top: 2rem; border: 1px solid gray; margin: 3rem; margin-top: 1rem; border-radius: 10px;">
+
+    <form method="POST" name="selected_course_add_topic_form" id="selected_course_add_topic_form">
+        {% csrf_token %}
+        <label for="selected_course_add_topic">Select Course*</label>
+        <select class="form-select" style="background-color: rgba(187, 213, 234, 0.975); border-radius: 0%;"
+            id="selected_course_add_topic" name="selected_course_add_topic">
+
+            <option value="" selected disabled>Select the course</option>
+
+
+            {% for course in user.personal.course_set.all %}
+            {% if course.id == selected_id %}
+            <option value="{{course.id}}" selected>{{course}}</option>
+            {%else%}
+            <option value="{{course.id}}">{{course}}</option>
+            {% endif%}
+
+            {% endfor %}
+        </select>
+    </form>
+
+
+    <form {% if selected_id %} action="{% url 'add-topic' selected_id %}" {% endif %} method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+
+        {% if selected_id == None %}
+        <fieldset disabled>
+            {{form|crispy}}
+            <div>
+                <button type='submit' class="btn btn-outline-secondary" style="float: right;">
+                    Add Topic
+                </button>
+            </div>
+        </fieldset>
+
+        {% else %}
+        
+        {{form|crispy}}
+        <div>
+            <button type='submit' class="btn btn-outline-secondary" style="float: right;">
+                Add Topic
+            </button>
+        </div>
+        {% endif %}
+
+    </form>
+
+    <h6 style="color: rgb(140, 2, 2); margin-top: 2rem;">{% if course %} {{course}} {% endif %}</h6>
+
+    {% include 'course_management/course_topics.html' %}
+</div>
+
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $('#selected_course_add_topic').on('change', function () {
+            $('#selected_course_add_topic_form').submit();
+        });
+    });
+
+</script>
+{% endblock %}

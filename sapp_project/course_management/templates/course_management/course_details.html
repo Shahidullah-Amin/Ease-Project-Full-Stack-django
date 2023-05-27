@@ -1,0 +1,1737 @@
+{% extends 'course_management/home.html' %}
+
+{% block title %}
+<title>
+  Lesson Details
+</title>
+{% endblock%}
+
+
+{% block homecontent %}
+<div id="UpdatePanel1">
+
+  <div class="panel panel-default p-1">
+    <div class="panel-heading">
+      <span id="lblDersBilgileri_h">
+        <font style="vertical-align: inherit;">
+          <font style="vertical-align: inherit;">Lesson Details</font>
+        </font>
+      </span>
+      <a id="btnYazdir" accesskey="y" title="Print" class="btn btn-default btn-xs"
+        href="javascript:__doPostBack('btnYazdir','')"
+        style="display:inline-block;color:#5B636A;font-family:Open Sans;font-size:9pt;width:27px;"><i
+          style="padding-left:3px;font-size:16px" class="fal fa-print text-info"></i></a>
+    </div>
+
+    <div>
+      <table class="grdStyle" cellspacing="0" cellpadding="1" align="Left" grdinit_0="0" grdinit_dee="False"
+        grdinit_dsa="False" grdinit_dsm="False" grdinit_ds_cnt="1" id="grdDers"
+        style="color:#3b3a36;border-color:#e7e7e7;border-width:1px;border-style:None;font-family:Tahoma;font-size:8pt;font-weight:normal;width:100%;border-collapse:collapse;">
+        <tbody>
+          <tr align="left" style="color:#fff;background-color:#6b6b6b;font-weight:normal;height:30px;">
+            <th align="left" scope="col" style="padding:2px;">
+              <font style="vertical-align: inherit;">
+                <font style="vertical-align: inherit;">Semester</font>
+              </font>
+            </th>
+            <th align="left" scope="col" style="padding:2px;">
+              <font style="vertical-align: inherit;">
+                <font style="vertical-align: inherit;">Code</font>
+              </font>
+            </th>
+            <th align="left" scope="col" style="padding:2px;">
+              <font style="vertical-align: inherit;">
+                <font style="vertical-align: inherit;">Course Name</font>
+              </font>
+            </th>
+            <th align="left" scope="col" style="padding:2px;">
+              <font style="vertical-align: inherit;">
+                <font style="vertical-align: inherit;">T+U</font>
+              </font>
+            </th>
+            <th align="left" scope="col" style="padding:2px;">
+              <font style="vertical-align: inherit;">
+                <font style="vertical-align: inherit;">Credit</font>
+              </font>
+            </th>
+            <th align="left" scope="col" style="padding:2px;">
+              <font style="vertical-align: inherit;">
+                <font style="vertical-align: inherit;">ECTS</font>
+              </font>
+            </th>
+          </tr>
+          <tr onmouseover="this.originalstyle=this.style.backgroundColor;this.style.backgroundColor='#CCE0FC'"
+            onmouseout="this.style.backgroundColor=this.originalstyle;"
+            style="color: rgb(59, 58, 54); border-color: rgb(231, 231, 231); border-width: 1px; border-style: solid; height: 30px;">
+            <td align="left" style="padding:3px;">
+              <font style="vertical-align: inherit;">
+                <font style="vertical-align: inherit;">{{course.semester_no}} {{course.semester}}</font>
+              </font>
+            </td>
+            <td align="left" style="padding:3px;">
+              <font style="vertical-align: inherit;">
+                <font style="vertical-align: inherit;">{{course.course_code}}</font>
+              </font>
+            </td>
+            <td align="left" style="padding:3px;">
+              <font style="vertical-align: inherit;">
+                <font style="vertical-align: inherit;">{{course}}</font>
+              </font>
+            </td>
+            <td align="left" style="padding:3px;">
+              <font style="vertical-align: inherit;">
+                <font style="vertical-align: inherit;">2+2</font>
+              </font>
+            </td>
+            <td align="left" style="padding:3px;">
+              <font style="vertical-align: inherit;">
+                <font style="vertical-align: inherit;">{{course.credit}}</font>
+              </font>
+            </td>
+            <td align="left" style="padding:3px;">
+              <font style="vertical-align: inherit;">
+                <font style="vertical-align: inherit;">5</font>
+              </font>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+  <br>
+  <table id="dlDers" cellspacing="0" style="font-size:10pt;width:100%;border-collapse:collapse;">
+    <tbody>
+      <tr>
+        <td>
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <span id="dlDers_lblDersDetayHeader_0">
+                <font style="vertical-align: inherit;">
+                  <font style="vertical-align: inherit;">Lesson Details</font>
+                </font>
+              </span>
+            </div>
+            <table class="table table-hover table-striped" style="width: 100%">
+              <tbody>
+                <tr>
+                  <td style="width: 15%">
+                    <span id="dlDers_DILLabelh_0" style="color:#3A3A3A;font-family:Open Sans;font-size:8pt;">
+                      <font style="vertical-align: inherit;">
+                        <font style="vertical-align: inherit;">Language of the Course</font>
+                      </font>
+                    </span>
+                  </td>
+                  <td class="bottom_dotted">
+                    <span id="dlDers_DILLabel_0" style="color:#3A3A3A;font-family:Open Sans;font-size:8pt;">
+                      <font style="vertical-align: inherit;">
+                        <font style="vertical-align: inherit;">{{course.course_language}}</font>
+                      </font>
+                    </span>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <span id="dlDers_DUZEYLabelh_0" style="color:#3A3A3A;font-family:Open Sans;font-size:8pt;">
+                      <font style="vertical-align: inherit;">
+                        <font style="vertical-align: inherit;">Course Level</font>
+                      </font>
+                    </span>
+                  </td>
+                  <td class="bottom_dotted">
+                    <span id="dlDers_Label6_0" style="color:#3A3A3A;font-family:Open Sans;font-size:8pt;">
+                      <font style="vertical-align: inherit;">
+                        <font style="vertical-align: inherit;" class="text-capitalize">{{course.course_level}}</font>
+                      </font>
+                    </span>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <span id="dlDers_BOLPROGLabelh_0" style="color:#3A3A3A;font-family:Open Sans;font-size:8pt;">
+                      <font style="vertical-align: inherit;">
+                        <font style="vertical-align: inherit;">Department / Program</font>
+                      </font>
+                    </span>
+                  </td>
+                  <td class="bottom_dotted">
+                    <span id="dlDers_Label7_0" style="color:#3A3A3A;font-family:Open Sans;font-size:8pt;">
+                      <font style="vertical-align: inherit;">
+                        <font style="vertical-align: inherit;">{{course.department}}</font>
+                      </font>
+                    </span>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <span id="dlDers_OGRENIMTURLabelh_0" style="color:#3A3A3A;font-family:Open Sans;font-size:8pt;">
+                      <font style="vertical-align: inherit;">
+                        <font style="vertical-align: inherit;">Education Type</font>
+                      </font>
+                    </span>
+                  </td>
+                  <td class="bottom_dotted">
+                    <span id="dlDers_Label5_0" style="color:#3A3A3A;font-family:Open Sans;font-size:8pt;">
+                      <font style="vertical-align: inherit;">
+                        <font style="vertical-align: inherit;">Formal education</font>
+                      </font>
+                    </span>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <span id="dlDers_TURLabelh_0" style="color:#3A3A3A;font-family:Open Sans;font-size:8pt;">
+                      <font style="vertical-align: inherit;">
+                        <font style="vertical-align: inherit;">Type of Course</font>
+                      </font>
+                    </span>
+                  </td>
+                  <td class="bottom_dotted">
+                    <span id="dlDers_TURLabel_0" style="color:#3A3A3A;font-family:Open Sans;font-size:8pt;">
+                      <font style="vertical-align: inherit;">
+                        <font style="vertical-align: inherit;">Compulsory</font>
+                      </font>
+                    </span>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <span id="dlDers_AMACLabelh_0" style="color:#3A3A3A;font-family:Open Sans;font-size:8pt;">
+                      <font style="vertical-align: inherit;">
+                        <font style="vertical-align: inherit;">The aim of lesson</font>
+                      </font>
+                    </span>
+                  </td>
+                  <td class="bottom_dotted">
+                    <span id="dlDers_AMACLabel_0" style="color:#3A3A3A;font-family:Open Sans;font-size:8pt;">
+                      <font style="vertical-align: inherit;">
+                        <font style="vertical-align: inherit;">{{course.aim_of_lesson}}</font>
+                      </font><br><br><br>
+                      <font style="vertical-align: inherit;"></font><br>
+                      <font style="vertical-align: inherit;"></font><br>
+                      <font style="vertical-align: inherit;"></font><br>
+                    </span>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <span id="dlDers_ICERIKLabelh_0" style="color:#3A3A3A;font-family:Open Sans;font-size:8pt;">
+                      <font style="vertical-align: inherit;">
+                        <font style="vertical-align: inherit;">Course Content</font>
+                      </font>
+                    </span>
+                  </td>
+                  <td class="bottom_dotted">
+                    <span id="dlDers_ICERIKLabel_0" style="color:#3A3A3A;font-family:Open Sans;font-size:8pt;">
+                      <font style="vertical-align: inherit;">
+                        <font style="vertical-align: inherit;">Explain what design is and </font>
+                      </font><br>
+                      <font style="vertical-align: inherit;">
+                        <font style="vertical-align: inherit;">how various types of design deal with different aspects
+                          of the product </font>
+                      </font><br>
+                      <font style="vertical-align: inherit;">
+                        <font style="vertical-align: inherit;">? </font>
+                        <font style="vertical-align: inherit;">Presenting design as a problem solving activity, </font>
+                        <font style="vertical-align: inherit;">revealing </font>
+                      </font><br>
+                      <font style="vertical-align: inherit;">
+                        <font style="vertical-align: inherit;">the role of abstraction and modeling in design </font>
+                        <font style="vertical-align: inherit;">? </font>
+                        <font style="vertical-align: inherit;">Determining the place of design in the software life
+                          cycle </font>
+                        <font style="vertical-align: inherit;">? </font>
+                        <font style="vertical-align: inherit;">Examining design methods in software engineering</font>
+                      </font><br>
+                      <font style="vertical-align: inherit;"></font><br>
+                      <font style="vertical-align: inherit;"></font><br>
+                      <font style="vertical-align: inherit;"></font><br><br>
+                    </span>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <span id="dlDers_YONTEMTEKNIKLabelh_0" style="color:#3A3A3A;font-family:Open Sans;font-size:8pt;">
+                      <font style="vertical-align: inherit;">
+                        <font style="vertical-align: inherit;">Course Methods and Techniques</font>
+                      </font>
+                    </span>
+                  </td>
+                  <td class="bottom_dotted">
+                    <span id="dlDers_YONTEMTEKNIKLabel_0"
+                      style="color:#3A3A3A;font-family:Open Sans;font-size:8pt;"></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <span id="dlDers_DERS_ONKOSULLabelh_0" style="color:#3A3A3A;font-family:Open Sans;font-size:8pt;">
+                      <font style="vertical-align: inherit;">
+                        <font style="vertical-align: inherit;">Prerequisites</font>
+                      </font>
+                    </span>
+                  </td>
+                  <td class="bottom_dotted">
+                    <span id="dlDers_DERS_ONKOSULLabel_0" style="color:#3A3A3A;font-family:Open Sans;font-size:8pt;">
+                      <font style="vertical-align: inherit;">
+                        <font style="vertical-align: inherit;">None</font>
+                      </font>
+                    </span>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="bottom_dotted">
+                    <span id="dlDers_DERS_KOORDINATORLabelh_0"
+                      style="color:#3A3A3A;font-family:Open Sans;font-size:8pt;">
+                      <font style="vertical-align: inherit;">
+                        <font style="vertical-align: inherit;">Course Coordinator</font>
+                      </font>
+                    </span>
+                  </td>
+                  <td class="bottom_dotted">
+                    <span id="dlDers_DERS_KOORDINATORLabel_0"
+                      style="color:#3A3A3A;font-family:Open Sans;font-size:8pt;">
+                      <font style="vertical-align: inherit;">
+                        <font style="vertical-align: inherit;">None</font>
+                      </font>
+                    </span>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="bottom_dotted">
+                    <span id="dlDers_DERS_VERENLabelh_0" style="color:#3A3A3A;font-family:Open Sans;font-size:8pt;">
+                      <font style="vertical-align: inherit;">
+                        <font style="vertical-align: inherit;">Instructors</font>
+                      </font>
+                    </span>
+                  </td>
+                  <td class="bottom_dotted">
+                    <span id="dlDers_DERS_VERENLabel_0" style="color:#3A3A3A;font-family:Open Sans;font-size:8pt;">
+                      <font style="vertical-align: inherit;">
+                        <font style="vertical-align: inherit;">Undefined Samsun University Department of Software
+                          Engineering</font>
+                      </font>
+                    </span>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="bottom_dotted">
+                    <span id="dlDers_DERS_YARDIMCILabelh_0" style="color:#3A3A3A;font-family:Open Sans;font-size:8pt;">
+                      <font style="vertical-align: inherit;">
+                        <font style="vertical-align: inherit;">Course Assistants</font>
+                      </font>
+                    </span>
+                  </td>
+                  <td class="bottom_dotted">
+                    <span id="dlDers_DERS_YARDIMCILabel_0" style="color:#3A3A3A;font-family:Open Sans;font-size:8pt;">
+                      {% for assistant in course.course_assistants.all %}
+                      {% if forloop.counter == course.course_assistants.all.count %}
+                      <font style="vertical-align: inherit;">
+                        <font style="vertical-align: inherit;">{{assistant.first_name}} {{assistant.last_name}}</font>
+                      </font>
+                      {% else %}
+                      <font style="vertical-align: inherit;">
+                        <font style="vertical-align: inherit;">{{assistant.first_name}} {{assistant.last_name}} ,</font>
+                      </font>
+                      {% endif %}
+                      {% endfor %}
+                    </span>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="bottom_dotted" style="height: 13px">
+                    <span id="dlDers_STAJ_VARMILabelh_0" style="color:#3A3A3A;font-family:Open Sans;font-size:8pt;">
+                      <font style="vertical-align: inherit;">
+                        <font style="vertical-align: inherit;">Course Internship Status</font>
+                      </font>
+                    </span>
+                  </td>
+                  <td class="bottom_dotted" style="height: 13px">
+                    <span id="dlDers_STAJ_VARMILabel_0" style="color:#3A3A3A;font-family:Open Sans;font-size:8pt;">
+                      <font style="vertical-align: inherit;">
+                        <font style="vertical-align: inherit;">None</font>
+                      </font>
+                    </span>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <br>
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <span id="dlDers_lblDersKaynaklari_h_0">
+                <font style="vertical-align: inherit;">
+                  <font style="vertical-align: inherit;">Course Resources</font>
+                </font>
+              </span>
+            </div>
+            <table class="table table-hover" style="width: 100%">
+              <tbody>
+                {% for resource in course.course_resources.all %}
+                <tr>
+                  <td class="bottom_dotted" style="width: 15%">
+                    <span id="dlDers_KAYNAKLARLabelh_0" style="color:#3A3A3A;font-family:Open Sans;font-size:8pt;">
+                      <font style="vertical-align: inherit;">
+                        <font style="vertical-align: inherit;">resources {{forloop.counter}}</font>
+                      </font>
+                    </span>
+                  </td>
+                  <td class="bottom_dotted">
+                    <span id="dlDers_KAYNAKLARLabel_0" style="color:#3A3A3A;font-family:Open Sans;font-size:8pt;">
+                      <font style="vertical-align: inherit;">
+                        <font style="vertical-align: inherit;"><span
+                            style="margin-right: 4rem;">{{resource.name}}</span><a href="{{resource}}">{{resource}}</a>
+                        </font>
+                      </font>
+                    </span>
+                  </td>
+                </tr>
+                {%endfor%}
+                <tr>
+                  <td class="bottom_dotted">
+                    <span id="dlDers_MP_DOKUMANLabelh_0"
+                      style="color:#3A3A3A;font-family:Open Sans;font-size:8pt;"></span>
+                  </td>
+                  <td class="bottom_dotted">
+                    <a id="dlDers_MP_DOKUMANLabel_0" target="_blank"
+                      style="font-family:Open Sans;font-size:8pt;font-weight:normal;"></a>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="bottom_dotted">
+                    <span id="dlDers_MP_ODEVLERLabelh_0"
+                      style="color:#3A3A3A;font-family:Open Sans;font-size:8pt;"></span>
+                  </td>
+                  <td class="bottom_dotted">
+                    <span id="dlDers_MP_ODEVLERLabel_0"
+                      style="color:#3A3A3A;font-family:Open Sans;font-size:8pt;"></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="bottom_dotted">
+                    <span id="dlDers_MP_SINAVLARLabelh_0"
+                      style="color:#3A3A3A;font-family:Open Sans;font-size:8pt;"></span>
+                  </td>
+                  <td class="bottom_dotted">
+                    <span id="dlDers_MP_SINAVLARLabel_0"
+                      style="color:#3A3A3A;font-family:Open Sans;font-size:8pt;"></span>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <br>
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <span id="dlDers_lblDersYapisi_h_0">
+                <font style="vertical-align: inherit;">
+                  <font style="vertical-align: inherit;">Course Structure</font>
+                </font>
+              </span>
+            </div>
+            <table id="dlDers_tblDersYapisi_0" class="table table-hover" width="100%">
+              <tbody>
+                <tr>
+                  <td class="bottom_dotted" style="width: 15%">
+                    <span id="dlDers_DK_MATTEMLabelh_0" style="color:#3A3A3A;font-family:Open Sans;font-size:8pt;">
+                      <font style="vertical-align: inherit;">
+                        <font style="vertical-align: inherit;">Mathematics and Basic Sciences</font>
+                      </font>
+                    </span>
+                  </td>
+                  <td class="bottom_dotted" style="text-align: right; width: 5%;">
+                    <span id="dlDers_DK_MATTEMLabel_0" style="color:#3A3A3A;font-family:Open Sans;font-size:8pt;">
+                      <font style="vertical-align: inherit;">
+                        <font style="vertical-align: inherit;">{{course.course_structure.math_science}}%</font>
+                      </font>
+                    </span>
+                  </td>
+                  <td class="bottom_dotted" style="text-align: left"></td>
+                </tr>
+                <tr>
+                  <td class="bottom_dotted">
+                    <span id="dlDers_DK_MUHBILLabelh_0" style="color:#3A3A3A;font-family:Open Sans;font-size:8pt;">
+                      <font style="vertical-align: inherit;">
+                        <font style="vertical-align: inherit;">Engineering Sciences</font>
+                      </font>
+                    </span>
+                  </td>
+                  <td class="bottom_dotted" style="text-align: right">
+                    <span id="dlDers_DK_MUHBILLabel_0" style="color:#3A3A3A;font-family:Open Sans;font-size:8pt;">
+                      <font style="vertical-align: inherit;">
+                        <font style="vertical-align: inherit;">{{course.course_structure.engineering_science}}%</font>
+                      </font>
+                    </span>
+                  </td>
+                  <td class="bottom_dotted" style="text-align: left"></td>
+                </tr>
+                <tr>
+                  <td class="bottom_dotted">
+                    <span id="dlDers_DK_MUHTASLabelh_0" style="color:#3A3A3A;font-family:Open Sans;font-size:8pt;">
+                      <font style="vertical-align: inherit;">
+                        <font style="vertical-align: inherit;">Engineering Design</font>
+                      </font>
+                    </span>
+                  </td>
+                  <td class="bottom_dotted" style="text-align: right">
+                    <span id="dlDers_DK_MUHTASLabel_0" style="color:#3A3A3A;font-family:Open Sans;font-size:8pt;">
+                      <font style="vertical-align: inherit;">
+                        <font style="vertical-align: inherit;">{{course.course_structure.engineering_design}}%</font>
+                      </font>
+                    </span>
+                  </td>
+                  <td class="bottom_dotted" style="text-align: left"></td>
+                </tr>
+                <tr>
+                  <td class="bottom_dotted">
+                    <span id="dlDers_DK_SOSLabelh_0" style="color:#3A3A3A;font-family:Open Sans;font-size:8pt;">
+                      <font style="vertical-align: inherit;">
+                        <font style="vertical-align: inherit;">Liberal arts</font>
+                      </font>
+                    </span>
+                  </td>
+                  <td class="bottom_dotted" style="text-align: right">
+                    <span id="dlDers_DK_SOSLabel_0" style="color:#3A3A3A;font-family:Open Sans;font-size:8pt;">
+                      <font style="vertical-align: inherit;">
+                        <font style="vertical-align: inherit;">{{course.course_structure.liberal_arts}}%</font>
+                      </font>
+                    </span>
+                  </td>
+                  <td class="bottom_dotted" style="text-align: left"></td>
+                </tr>
+                <tr>
+                  <td class="bottom_dotted">
+                    <span id="dlDers_DK_EGITIMLabelh_0" style="color:#3A3A3A;font-family:Open Sans;font-size:8pt;">
+                      <font style="vertical-align: inherit;">
+                        <font style="vertical-align: inherit;">educational Sciences</font>
+                      </font>
+                    </span>
+                  </td>
+                  <td class="bottom_dotted" style="text-align: right">
+                    <span id="dlDers_DK_EGITIMLabel_0" style="color:#3A3A3A;font-family:Open Sans;font-size:8pt;">
+                      <font style="vertical-align: inherit;">
+                        <font style="vertical-align: inherit;">{{course.course_structure.educational_science}}%</font>
+                      </font>
+                    </span>
+                  </td>
+                  <td class="bottom_dotted" style="text-align: left"></td>
+                </tr>
+                <tr>
+                  <td class="bottom_dotted">
+                    <span id="dlDers_DK_FENLabelh_0" style="color:#3A3A3A;font-family:Open Sans;font-size:8pt;">
+                      <font style="vertical-align: inherit;">
+                        <font style="vertical-align: inherit;">Science</font>
+                      </font>
+                    </span>
+                  </td>
+                  <td class="bottom_dotted" style="text-align: right">
+                    <span id="dlDers_DK_FENLabel_0" style="color:#3A3A3A;font-family:Open Sans;font-size:8pt;">
+                      <font style="vertical-align: inherit;">
+                        <font style="vertical-align: inherit;">{{course.course_structure.science}}%</font>
+                      </font>
+                    </span>
+                  </td>
+                  <td class="bottom_dotted" style="text-align: left"></td>
+                </tr>
+                <tr>
+                  <td class="bottom_dotted">
+                    <span id="dlDers_DK_SAGLIKLabelh_0" style="color:#3A3A3A;font-family:Open Sans;font-size:8pt;">
+                      <font style="vertical-align: inherit;">
+                        <font style="vertical-align: inherit;">Health Sciences</font>
+                      </font>
+                    </span>
+                  </td>
+                  <td class="bottom_dotted" style="text-align: right">
+                    <span id="dlDers_DK_SAGLIKLabel_0" style="color:#3A3A3A;font-family:Open Sans;font-size:8pt;">
+                      <font style="vertical-align: inherit;">
+                        <font style="vertical-align: inherit;">{{course.course_structure.health_science}}%</font>
+                      </font>
+                    </span>
+                  </td>
+                  <td class="bottom_dotted" style="text-align: left"></td>
+                </tr>
+                <tr>
+                  <td class="bottom_dotted">
+                    <span id="dlDers_DK_ALANLabelh_0" style="color:#3A3A3A;font-family:Open Sans;font-size:8pt;">
+                      <font style="vertical-align: inherit;">
+                        <font style="vertical-align: inherit;">Area information</font>
+                      </font>
+                    </span>
+                  </td>
+                  <td class="bottom_dotted" style="text-align: right">
+                    <span id="dlDers_DK_ALANLabel_0" style="color:#3A3A3A;font-family:Open Sans;font-size:8pt;">
+                      <font style="vertical-align: inherit;">
+                        <font style="vertical-align: inherit;">{{course.course_structure.area_information}}%</font>
+                      </font>
+                    </span>
+                  </td>
+                  <td class="bottom_dotted" style="text-align: left"></td>
+                </tr>
+              </tbody>
+            </table>
+
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <br>
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <span id="lblPlanlananOgrAktivite_h">
+        <font style="vertical-align: inherit;">
+          <font style="vertical-align: inherit;">Planned Learning Activities and Methods</font>
+        </font>
+      </span>
+    </div>
+    <span id="lblPlanlananOgrAktivite" style="color:#3A3A3A;font-family:Open Sans;font-size:8pt;">
+      <font style="vertical-align: inherit;">
+        <font style="vertical-align: inherit;">Activities are detailed in the "Assessment" and "Workload Calculation"
+          sections.</font>
+      </font>
+    </span><br>
+  </div>
+  <br>
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <span id="lblDegerlendirmeOlcutleri_h">
+        <font style="vertical-align: inherit;">
+          <font style="vertical-align: inherit;">Evaluation Criteria</font>
+        </font>
+      </span>
+    </div>
+    <div>
+      <table class="grdStyle" cellspacing="0" cellpadding="1" align="Left" grdinit_0="0" grdinit_dee="False"
+        grdinit_dsa="False" grdinit_dsm="False" grdinit_ds_cnt="7" id="grd_degerlendirme"
+        style="color:#3b3a36;border-color:#e7e7e7;border-width:1px;border-style:solid;font-family:Tahoma;font-size:8pt;font-weight:normal;width:100%;border-collapse:collapse;">
+        <tbody>
+          <tr align="left" class="text-left"
+            style="color:#fff;background-color:#6b6b6b;font-weight:normal;height:30px;">
+            <th class="bottom_dotted" align="left" scope="col" style="padding:2px; width: 5rem;">
+              <span id="grd_degerlendirme_lblDS_Calisma_h" class="text-white"
+                style="color:#3A3A3A;font-family:Open Sans;font-size:8pt;font-size: 10pt; font-family: Tahoma">
+                <font style="vertical-align: inherit;">
+                  <font style="vertical-align: inherit;">Semester Studies</font>
+                </font>
+              </span>
+            </th>
+            <th class="grdHeaderRight" align="left" scope="col" style="width:50px;padding:2px;">
+              <span id="grd_degerlendirme_lblDS_Sayi_h" class="text-white"
+                style="display:inline-block;color:#3A3A3A;font-family:Open Sans;font-size:8pt;width:38px;font-size: 10pt; font-family: Tahoma">
+                <font style="vertical-align: inherit;">
+                  <font style="vertical-align: inherit;">Number</font>
+                </font>
+              </span>
+            </th>
+            <th class="grdHeaderRight" align="left" scope="col" style="width:70px;padding:2px;">
+              <span id="grd_degerlendirme_lblDS_Katki_h" class="text-white"
+                style="display:inline-block;color:#3A3A3A;font-family:Open Sans;font-size:8pt;width:95%;text-align: right; font-size: 10pt; font-family: Tahoma">
+                <font style="vertical-align: inherit;">
+                  <font style="vertical-align: inherit;">Contribution</font>
+                </font>
+              </span>
+            </th>
+          </tr>
+          <tr onmouseover="this.originalstyle=this.style.backgroundColor;this.style.backgroundColor='#CCE0FC'"
+            onmouseout="this.style.backgroundColor=this.originalstyle;"
+            style="color:#3b3a36;border-color:#e7e7e7;border-width:1px;border-style:Solid;height:30px;">
+            <td class="bottom_dotted" align="left" style="padding:3px;">
+              <span id="grd_degerlendirme_lblCalismaTip_0" title="one"
+                style="color:#3A3A3A;font-family:Open Sans;font-size:8pt;">
+                <font style="vertical-align: inherit;">
+                  <font style="vertical-align: inherit;">Midterm</font>
+                </font>
+              </span>
+            </td>
+            <td class="bottom_dotted" align="left" style="padding:3px;">
+              <span id="grd_degerlendirme_lblDS_Sayi_0" style="color:#3A3A3A;font-family:Open Sans;font-size:8pt;">
+                <font style="vertical-align: inherit;">
+                  <font style="vertical-align: inherit;">one</font>
+                </font>
+              </span>
+            </td>
+            <td class="bottom_dotted" align="right" style=" padding:3px;">
+              <span id="grd_degerlendirme_Label124_0" style="color:#3A3A3A;font-family:Open Sans;font-size:8pt;">
+                <font style="vertical-align: inherit;"></font>
+              </span>
+              <font style="vertical-align: inherit;"><span id="grd_degerlendirme_lblDS_Katki_0"
+                  style="color:#3A3A3A;font-family:Open Sans;font-size:8pt;">
+                  <font style="vertical-align: inherit;">{{course.midterm_exam}}</font>
+                </span><span id="grd_degerlendirme_Label124_0"
+                  style="color:#3A3A3A;font-family:Open Sans;font-size:8pt;">
+                  <font style="vertical-align: inherit;">%</font>
+                </span></font><span id="grd_degerlendirme_lblDS_Katki_0"
+                style="color:#3A3A3A;font-family:Open Sans;font-size:8pt;">
+                <font style="vertical-align: inherit;"></font>
+              </span>
+            </td>
+          </tr>
+          <tr onmouseover="this.originalstyle=this.style.backgroundColor;this.style.backgroundColor='#CCE0FC'"
+            onmouseout="this.style.backgroundColor=this.originalstyle;"
+            style="color:#3b3a36;border-color:#e7e7e7;border-width:1px;border-style:Solid;height:30px;">
+            <td class="bottom_dotted" align="left" style="padding:3px;">
+              <span id="grd_degerlendirme_lblCalismaTip_2" title="3"
+                style="color:#3A3A3A;font-family:Open Sans;font-size:8pt;">
+                <font style="vertical-align: inherit;">
+                  <font style="vertical-align: inherit;">Homework</font>
+                </font>
+              </span>
+            </td>
+            <td class="bottom_dotted" align="left" style="padding:3px;">
+              <span id="grd_degerlendirme_lblDS_Sayi_2" style="color:#3A3A3A;font-family:Open Sans;font-size:8pt;">
+                <font style="vertical-align: inherit;">
+                  <font style="vertical-align: inherit;"></font>
+                </font>
+              </span>
+            </td>
+            <td class="bottom_dotted" align="right" style="padding:3px;">
+              <span id="grd_degerlendirme_Label124_2" style="color:#3A3A3A;font-family:Open Sans;font-size:8pt;">
+                <font style="vertical-align: inherit;"></font>
+              </span>
+              <font style="vertical-align: inherit;"><span id="grd_degerlendirme_lblDS_Katki_2"
+                  style="color:#3A3A3A;font-family:Open Sans;font-size:8pt;">
+                  <font style="vertical-align: inherit;">{{course.assginment}}</font>
+                </span><span id="grd_degerlendirme_Label124_2"
+                  style="color:#3A3A3A;font-family:Open Sans;font-size:8pt;">
+                  <font style="vertical-align: inherit;">%</font>
+                </span></font><span id="grd_degerlendirme_lblDS_Katki_2"
+                style="color:#3A3A3A;font-family:Open Sans;font-size:8pt;">
+                <font style="vertical-align: inherit;"></font>
+              </span>
+            </td>
+          </tr>
+          <tr onmouseover="this.originalstyle=this.style.backgroundColor;this.style.backgroundColor='#CCE0FC'"
+            onmouseout="this.style.backgroundColor=this.originalstyle;"
+            style="color:#3b3a36;border-color:#e7e7e7;border-width:1px;border-style:Solid;height:30px;">
+            <td class="bottom_dotted" align="left" style="padding:3px;">
+              <span id="grd_degerlendirme_lblCalismaTip_4" title="5"
+                style="color:#3A3A3A;font-family:Open Sans;font-size:8pt;">
+                <font style="vertical-align: inherit;">
+                  <font style="vertical-align: inherit;">APPLICATION</font>
+                </font>
+              </span>
+            </td>
+            <td class="bottom_dotted" align="left" style="padding:3px;">
+              <span id="grd_degerlendirme_lblDS_Sayi_4" style="color:#3A3A3A;font-family:Open Sans;font-size:8pt;">
+                <font style="vertical-align: inherit;">
+                  <font style="vertical-align: inherit;"></font>
+                </font>
+              </span>
+            </td>
+            <td class="bottom_dotted" align="right" style="padding:3px;">
+              <span id="grd_degerlendirme_Label124_4" style="color:#3A3A3A;font-family:Open Sans;font-size:8pt;">
+                <font style="vertical-align: inherit;"></font>
+              </span>
+              <font style="vertical-align: inherit;"><span id="grd_degerlendirme_lblDS_Katki_4"
+                  style="color:#3A3A3A;font-family:Open Sans;font-size:8pt;">
+                  <font style="vertical-align: inherit;">{{course.practice}}</font>
+                </span><span id="grd_degerlendirme_Label124_4"
+                  style="color:#3A3A3A;font-family:Open Sans;font-size:8pt;">
+                  <font style="vertical-align: inherit;">%</font>
+                </span></font><span id="grd_degerlendirme_lblDS_Katki_4"
+                style="color:#3A3A3A;font-family:Open Sans;font-size:8pt;">
+                <font style="vertical-align: inherit;"></font>
+              </span>
+            </td>
+          </tr>
+
+
+          <tr onmouseover="this.originalstyle=this.style.backgroundColor;this.style.backgroundColor='#CCE0FC'"
+            onmouseout="this.style.backgroundColor=this.originalstyle;"
+            style="color:#3b3a36;background-color:White;border-color:#e7e7e7;border-width:1px;border-style:Solid;height:30px;">
+            <td class="bottom_dotted" align="left" style="padding:3px;">
+              <span id="grd_degerlendirme_lblCalismaTip_5" title="6"
+                style="color:#3A3A3A;font-family:Open Sans;font-size:8pt;">
+                <font style="vertical-align: inherit;">
+                  <font style="vertical-align: inherit;">Project</font>
+                </font>
+              </span>
+            </td>
+            <td class="bottom_dotted" align="left" style="padding:3px;">
+              <span id="grd_degerlendirme_lblDS_Sayi_5" style="color:#3A3A3A;font-family:Open Sans;font-size:8pt;">
+                <font style="vertical-align: inherit;">
+                  <font style="vertical-align: inherit;">one</font>
+                </font>
+              </span>
+            </td>
+
+            <td class="bottom_dotted" align="right" style="padding:3px;">
+              <span id="grd_degerlendirme_Label124_5" style="color:#3A3A3A;font-family:Open Sans;font-size:8pt;">
+                <font style="vertical-align: inherit;"></font>
+              </span>
+              <font style="vertical-align: inherit;"><span id="grd_degerlendirme_lblDS_Katki_5"
+                  style="color:#3A3A3A;font-family:Open Sans;font-size:8pt;">
+                  <font style="vertical-align: inherit;">{{course.project}}</font>
+                </span><span id="grd_degerlendirme_Label124_5"
+                  style="color:#3A3A3A;font-family:Open Sans;font-size:8pt;">
+                  <font style="vertical-align: inherit;">%</font>
+                </span></font><span id="grd_degerlendirme_lblDS_Katki_5"
+                style="color:#3A3A3A;font-family:Open Sans;font-size:8pt;">
+                <font style="vertical-align: inherit;"></font>
+              </span>
+            </td>
+
+          </tr>
+          <tr onmouseover="this.originalstyle=this.style.backgroundColor;this.style.backgroundColor='#CCE0FC'"
+            onmouseout="this.style.backgroundColor=this.originalstyle;"
+            style="color:#3b3a36;border-color:#e7e7e7;border-width:1px;border-style:Solid;height:30px;">
+            <td class="bottom_dotted" align="left" style="padding:3px;">
+              <span id="grd_degerlendirme_lblCalismaTip_6" title="9"
+                style="color:#3A3A3A;font-family:Open Sans;font-size:8pt;">
+                <font style="vertical-align: inherit;">
+                  <font style="vertical-align: inherit;">Semester final exam</font>
+                </font>
+              </span>
+            </td>
+            <td class="bottom_dotted" align="left" style="padding:3px;">
+              <span id="grd_degerlendirme_lblDS_Sayi_6" style="color:#3A3A3A;font-family:Open Sans;font-size:8pt;">
+                <font style="vertical-align: inherit;">
+                  <font style="vertical-align: inherit;">one</font>
+                </font>
+              </span>
+            </td>
+
+            <td class="bottom_dotted" align="right" style="padding:3px;">
+              <span id="grd_degerlendirme_Label124_6" style="color:#3A3A3A;font-family:Open Sans;font-size:8pt;">
+                <font style="vertical-align: inherit;"></font>
+              </span>
+              <font style="vertical-align: inherit;"><span id="grd_degerlendirme_lblDS_Katki_6"
+                  style="color:#3A3A3A;font-family:Open Sans;font-size:8pt;">
+                  <font style="vertical-align: inherit;">{{course.final_exam}}</font>
+                </span><span id="grd_degerlendirme_Label124_6"
+                  style="color:#3A3A3A;font-family:Open Sans;font-size:8pt;">
+                  <font style="vertical-align: inherit;">%</font>
+                </span></font><span id="grd_degerlendirme_lblDS_Katki_6"
+                style="color:#3A3A3A;font-family:Open Sans;font-size:8pt;">
+                <font style="vertical-align: inherit;"></font>
+              </span>
+            </td>
+          </tr>
+
+          <tr style="color:White;background-color:#6b6b6b;font-weight:normal;height:22px;">
+            <td align="left" style="padding:3px;">
+              <span id="grd_degerlendirme_lblDS_Top_h" class="text-white"
+                style="display:inline-block;color:#3A3A3A;font-family:Open Sans;font-size:8pt;width:230px;font-size: 10pt; font-family: Tahoma">
+                <font style="vertical-align: inherit;">
+                  <font style="vertical-align: inherit;">Total :</font>
+                </font>
+              </span>
+            </td>
+            <td class="bottom_dotted" align="left" style="padding:3px;">
+              <span id="grd_degerlendirme_lblDS_Sayi_6" style="color:#ffffff;font-family:Open Sans;font-size:8pt;">
+                <font style="vertical-align: inherit;">
+                  <font style="vertical-align: inherit;">2</font>
+                </font>
+              </span>
+            </td>
+            <td align="right" style="padding:3px;">
+              <div style="width: 90%; text-align: right">
+                <span id="grd_degerlendirme_Label4" class="text-white"
+                  style="color:#3A3A3A;font-family:Open Sans;font-size:8pt;font-size: 10pt; font-family: Tahoma; text-align: right;">
+                  <font style="vertical-align: inherit;"></font>
+                </span>
+                <font style="vertical-align: inherit;"><span id="grd_degerlendirme_lblDS_Top_Katki" class="text-white"
+                    style="color:#3A3A3A;font-family:Open Sans;font-size:8pt;font-size: 10pt; font-family: Tahoma; text-align: right;">
+                    <font style="vertical-align: inherit;">100 </font>
+                  </span><span id="grd_degerlendirme_Label4" class="text-white"
+                    style="color:#3A3A3A;font-family:Open Sans;font-size:8pt;font-size: 10pt; font-family: Tahoma; text-align: right;">
+                    <font style="vertical-align: inherit;">%</font>
+                  </span></font><span id="grd_degerlendirme_lblDS_Top_Katki" class="text-white"
+                  style="color:#3A3A3A;font-family:Open Sans;font-size:8pt;font-size: 10pt; font-family: Tahoma; text-align: right;">
+                  <font style="vertical-align: inherit;"></font>
+                </span>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+  <br>
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <span id="lblAKTS_hesaplamaicerigi_h">
+        <font style="vertical-align: inherit;">
+          <font style="vertical-align: inherit;">ECTS Calculation Content</font>
+        </font>
+      </span>
+    </div>
+    <div>
+      <table class="grdStyle" cellspacing="0" cellpadding="1" align="Left" grdinit_0="0" grdinit_dee="False"
+        grdinit_dsa="False" grdinit_dsm="False" grdinit_ds_cnt="6" id="grd_akts"
+        style="color:#3b3a36;border-color:#e7e7e7;border-width:1px;border-style:solid;font-family:Tahoma;font-size:8pt;font-weight:normal;width:100%;border-collapse:collapse;">
+        <tbody>
+          <tr align="left" style="color:#fff;background-color:#6b6b6b;font-weight:normal;height:30px;">
+            <th class="bottom_dotted" align="left" scope="col" style="padding:2px;">
+              <span id="grd_akts_lblAKTS_Etkinlik_h" class="text-white"
+                style="color:#3A3A3A;font-family:Open Sans;font-size:8pt;font-size: 10pt; font-family: Tahoma">
+                <font style="vertical-align: inherit;">
+                  <font style="vertical-align: inherit;">Activity</font>
+                </font>
+              </span>
+            </th>
+            <th class="grdHeaderRight" align="left" scope="col" style="width:50px;padding:2px;">
+              <span id="grd_akts_lblAKTS_Sayi_h" class="text-white"
+                style="color:#3A3A3A;font-family:Open Sans;font-size:8pt;font-size: 10pt; font-family: Tahoma">
+                <font style="vertical-align: inherit;">
+                  <font style="vertical-align: inherit;">Number</font>
+                </font>
+              </span>
+            </th>
+            <th class="grdHeaderRight" align="left" scope="col" style="width:50px;padding:2px;">
+              <span id="grd_akts_lblAKTS_Sure_h" class="text-white"
+                style="color:#3A3A3A;font-family:Open Sans;font-size:8pt;font-size: 10pt; font-family: Tahoma">
+                <font style="vertical-align: inherit;">
+                  <font style="vertical-align: inherit;">Duration</font>
+                </font>
+              </span>
+            </th>
+            <th class="bottom_dotted" align="left" scope="col" style="width:100px;padding:2px;">
+              <span id="grd_akts_lblAKTS_Carpim_h" class="text-white"
+                style="display:inline-block;color:#3A3A3A;font-family:Open Sans;font-size:8pt;width:180px;font-size: 10pt; font-family: Tahoma; text-align: right">
+                <font style="vertical-align: inherit;">
+                  <font style="vertical-align: inherit;">Total Workload (Hours)</font>
+                </font>
+              </span>
+            </th>
+          </tr>
+          <tr onmouseover="this.originalstyle=this.style.backgroundColor;this.style.backgroundColor='#CCE0FC'"
+            onmouseout="this.style.backgroundColor=this.originalstyle;"
+            style="color:#3b3a36;border-color:#e7e7e7;border-width:1px;border-style:Solid;height:30px;">
+            <td class="bottom_dotted" align="left" style="padding:3px;">
+              <span id="grd_akts_lblEtkinlikTip_0" title="one"
+                style="color:#3A3A3A;font-family:Open Sans;font-size:8pt;">
+                <font style="vertical-align: inherit;">
+                  <font style="vertical-align: inherit;">Lesson Duration</font>
+                </font>
+              </span>
+            </td>
+            <td class="bottom_dotted" align="right" style="padding:3px;">
+              <span id="grd_akts_txtAKTS_Sayi_0" style="color:#3A3A3A;font-family:Open Sans;font-size:8pt;">
+                <font style="vertical-align: inherit;">
+                  <font style="vertical-align: inherit;">14</font>
+                </font>
+              </span>
+            </td>
+            <td class="bottom_dotted" align="right" style="padding:3px;">
+              <span id="grd_akts_txtAKTS_Sure_0" style="color:#3A3A3A;font-family:Open Sans;font-size:8pt;">
+                <font style="vertical-align: inherit;">
+                  <font style="vertical-align: inherit;">3</font>
+                </font>
+              </span>
+            </td>
+            <td class="bottom_dotted" align="left" style="padding:3px;">
+              <span id="grd_akts_lblAKTS_Carpim_0"
+                style="display:inline-block;color:#3A3A3A;font-family:Open Sans;font-size:8pt;width:95%;text-align: right">
+                <font style="vertical-align: inherit;">
+                  <font style="vertical-align: inherit;">42</font>
+                </font>
+              </span>
+
+            </td>
+          </tr>
+          <tr onmouseover="this.originalstyle=this.style.backgroundColor;this.style.backgroundColor='#CCE0FC'"
+            onmouseout="this.style.backgroundColor=this.originalstyle;"
+            style="color:#3b3a36;background-color:White;border-color:#e7e7e7;border-width:1px;border-style:Solid;height:30px;">
+            <td class="bottom_dotted" align="left" style="padding:3px;">
+              <span id="grd_akts_lblEtkinlikTip_1" title="2" style="color:#3A3A3A;font-family:Open Sans;font-size:8pt;">
+                <font style="vertical-align: inherit;">
+                  <font style="vertical-align: inherit;">Out of Class C. </font>
+                  <font style="vertical-align: inherit;">Time</font>
+                </font>
+              </span>
+            </td>
+            <td class="bottom_dotted" align="right" style="padding:3px;">
+              <span id="grd_akts_txtAKTS_Sayi_1" style="color:#3A3A3A;font-family:Open Sans;font-size:8pt;">
+                <font style="vertical-align: inherit;">
+                  <font style="vertical-align: inherit;">14</font>
+                </font>
+              </span>
+            </td>
+            <td class="bottom_dotted" align="right" style="padding:3px;">
+              <span id="grd_akts_txtAKTS_Sure_1" style="color:#3A3A3A;font-family:Open Sans;font-size:8pt;">
+                <font style="vertical-align: inherit;">
+                  <font style="vertical-align: inherit;">5</font>
+                </font>
+              </span>
+            </td>
+            <td class="bottom_dotted" align="left" style="padding:3px;">
+              <span id="grd_akts_lblAKTS_Carpim_1"
+                style="display:inline-block;color:#3A3A3A;font-family:Open Sans;font-size:8pt;width:95%;text-align: right">
+                <font style="vertical-align: inherit;">
+                  <font style="vertical-align: inherit;">70</font>
+                </font>
+              </span>
+
+            </td>
+          </tr>
+          <tr onmouseover="this.originalstyle=this.style.backgroundColor;this.style.backgroundColor='#CCE0FC'"
+            onmouseout="this.style.backgroundColor=this.originalstyle;"
+            style="color:#3b3a36;border-color:#e7e7e7;border-width:1px;border-style:Solid;height:30px;">
+            <td class="bottom_dotted" align="left" style="padding:3px;">
+              <span id="grd_akts_lblEtkinlikTip_2" title="4" style="color:#3A3A3A;font-family:Open Sans;font-size:8pt;">
+                <font style="vertical-align: inherit;">
+                  <font style="vertical-align: inherit;">Presentation/Seminar Preparation</font>
+                </font>
+              </span>
+            </td>
+            <td class="bottom_dotted" align="right" style="padding:3px;">
+              <span id="grd_akts_txtAKTS_Sayi_2" style="color:#3A3A3A;font-family:Open Sans;font-size:8pt;">
+                <font style="vertical-align: inherit;">
+                  <font style="vertical-align: inherit;">5</font>
+                </font>
+              </span>
+            </td>
+            <td class="bottom_dotted" align="right" style="padding:3px;">
+              <span id="grd_akts_txtAKTS_Sure_2" style="color:#3A3A3A;font-family:Open Sans;font-size:8pt;">
+                <font style="vertical-align: inherit;">
+                  <font style="vertical-align: inherit;">10</font>
+                </font>
+              </span>
+            </td>
+            <td class="bottom_dotted" align="left" style="padding:3px;">
+              <span id="grd_akts_lblAKTS_Carpim_2"
+                style="display:inline-block;color:#3A3A3A;font-family:Open Sans;font-size:8pt;width:95%;text-align: right">
+                <font style="vertical-align: inherit;">
+                  <font style="vertical-align: inherit;">50</font>
+                </font>
+              </span>
+
+            </td>
+          </tr>
+          <tr onmouseover="this.originalstyle=this.style.backgroundColor;this.style.backgroundColor='#CCE0FC'"
+            onmouseout="this.style.backgroundColor=this.originalstyle;"
+            style="color:#3b3a36;background-color:White;border-color:#e7e7e7;border-width:1px;border-style:Solid;height:30px;">
+            <td class="bottom_dotted" align="left" style="padding:3px;">
+              <span id="grd_akts_lblEtkinlikTip_3" title="5" style="color:#3A3A3A;font-family:Open Sans;font-size:8pt;">
+                <font style="vertical-align: inherit;">
+                  <font style="vertical-align: inherit;">Midterm Exams</font>
+                </font>
+              </span>
+            </td>
+            <td class="bottom_dotted" align="right" style="padding:3px;">
+              <span id="grd_akts_txtAKTS_Sayi_3" style="color:#3A3A3A;font-family:Open Sans;font-size:8pt;">
+                <font style="vertical-align: inherit;">
+                  <font style="vertical-align: inherit;">one</font>
+                </font>
+              </span>
+            </td>
+            <td class="bottom_dotted" align="right" style="padding:3px;">
+              <span id="grd_akts_txtAKTS_Sure_3" style="color:#3A3A3A;font-family:Open Sans;font-size:8pt;">
+                <font style="vertical-align: inherit;">
+                  <font style="vertical-align: inherit;">10</font>
+                </font>
+              </span>
+            </td>
+            <td class="bottom_dotted" align="left" style="padding:3px;">
+              <span id="grd_akts_lblAKTS_Carpim_3"
+                style="display:inline-block;color:#3A3A3A;font-family:Open Sans;font-size:8pt;width:95%;text-align: right">
+                <font style="vertical-align: inherit;">
+                  <font style="vertical-align: inherit;">10</font>
+                </font>
+              </span>
+
+            </td>
+          </tr>
+          <tr onmouseover="this.originalstyle=this.style.backgroundColor;this.style.backgroundColor='#CCE0FC'"
+            onmouseout="this.style.backgroundColor=this.originalstyle;"
+            style="color:#3b3a36;border-color:#e7e7e7;border-width:1px;border-style:Solid;height:30px;">
+            <td class="bottom_dotted" align="left" style="padding:3px;">
+              <span id="grd_akts_lblEtkinlikTip_4" title="8" style="color:#3A3A3A;font-family:Open Sans;font-size:8pt;">
+                <font style="vertical-align: inherit;">
+                  <font style="vertical-align: inherit;">Project</font>
+                </font>
+              </span>
+            </td>
+            <td class="bottom_dotted" align="right" style="padding:3px;">
+              <span id="grd_akts_txtAKTS_Sayi_4" style="color:#3A3A3A;font-family:Open Sans;font-size:8pt;">
+                <font style="vertical-align: inherit;">
+                  <font style="vertical-align: inherit;">2</font>
+                </font>
+              </span>
+            </td>
+            <td class="bottom_dotted" align="right" style="padding:3px;">
+              <span id="grd_akts_txtAKTS_Sure_4" style="color:#3A3A3A;font-family:Open Sans;font-size:8pt;">
+                <font style="vertical-align: inherit;">
+                  <font style="vertical-align: inherit;">10</font>
+                </font>
+              </span>
+            </td>
+            <td class="bottom_dotted" align="left" style="padding:3px;">
+              <span id="grd_akts_lblAKTS_Carpim_4"
+                style="display:inline-block;color:#3A3A3A;font-family:Open Sans;font-size:8pt;width:95%;text-align: right">
+                <font style="vertical-align: inherit;">
+                  <font style="vertical-align: inherit;">20</font>
+                </font>
+              </span>
+
+            </td>
+          </tr>
+          <tr onmouseover="this.originalstyle=this.style.backgroundColor;this.style.backgroundColor='#CCE0FC'"
+            onmouseout="this.style.backgroundColor=this.originalstyle;"
+            style="color:#3b3a36;background-color:White;border-color:#e7e7e7;border-width:1px;border-style:Solid;height:30px;">
+            <td class="bottom_dotted" align="left" style="padding:3px;">
+              <span id="grd_akts_lblEtkinlikTip_5" title="9" style="color:#3A3A3A;font-family:Open Sans;font-size:8pt;">
+                <font style="vertical-align: inherit;">
+                  <font style="vertical-align: inherit;">Semester final exam</font>
+                </font>
+              </span>
+            </td>
+            <td class="bottom_dotted" align="right" style="padding:3px;">
+              <span id="grd_akts_txtAKTS_Sayi_5" style="color:#3A3A3A;font-family:Open Sans;font-size:8pt;">
+                <font style="vertical-align: inherit;">
+                  <font style="vertical-align: inherit;">one</font>
+                </font>
+              </span>
+            </td>
+            <td class="bottom_dotted" align="right" style="padding:3px;">
+              <span id="grd_akts_txtAKTS_Sure_5" style="color:#3A3A3A;font-family:Open Sans;font-size:8pt;">
+                <font style="vertical-align: inherit;">
+                  <font style="vertical-align: inherit;">20</font>
+                </font>
+              </span>
+            </td>
+            <td class="bottom_dotted" align="left" style="padding:3px;">
+              <span id="grd_akts_lblAKTS_Carpim_5"
+                style="display:inline-block;color:#3A3A3A;font-family:Open Sans;font-size:8pt;width:95%;text-align: right">
+                <font style="vertical-align: inherit;">
+                  <font style="vertical-align: inherit;">20</font>
+                </font>
+              </span>
+
+            </td>
+          </tr>
+          <tr style="color:White;background-color:#6b6b6b;font-weight:normal;height:22px;">
+            <td align="left" style="padding:3px;">
+              <span id="grd_akts_lblAKTS_Top_h" class="text-white"
+                style="color:#3A3A3A;font-family:Open Sans;font-size:8pt;font-size: 10pt; font-family: Tahoma">
+                <font style="vertical-align: inherit;">
+                  <font style="vertical-align: inherit;">Total Workload</font>
+                </font>
+              </span>
+            </td>
+            <td align="left" style="padding:3px;">&nbsp;</td>
+            <td align="left" style="padding:3px;">
+            </td>
+            <td align="left" style="padding:3px;">
+
+              <span id="grd_akts_lblAKTS_Sonuc_h" class="text-white"
+                style="color:#3A3A3A;font-family:Open Sans;font-size:8pt;font-size: 10pt; font-family: Tahoma">
+                <font style="vertical-align: inherit;">
+                  <font style="vertical-align: inherit;">ECTS Credits: </font>
+                </font>
+              </span><span id="grd_akts_lblAKTS_Sonuc" class="text-white"
+                style="color:#3A3A3A;font-family:Open Sans;font-size:8pt;font-size: 10pt; font-family: Tahoma">
+                <font style="vertical-align: inherit;">
+                  <font style="vertical-align: inherit;">7</font>
+                </font>
+              </span>
+              <span id="grd_akts_lblAKTS_Top" class="text-white"
+                style="display:inline-block;color:#3A3A3A;font-family:Open Sans;font-size:8pt;width:60px;font-size: 10pt; font-family: Tahoma; text-align: right;">
+                <font style="vertical-align: inherit;">
+                  <font style="vertical-align: inherit;">212</font>
+                </font>
+              </span>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+  <br>
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <span id="lblDersinOgrenmeCiktilari">
+        <font style="vertical-align: inherit;">
+          <font style="vertical-align: inherit;">Course Learning Outcomes: Upon successful completion of this course,
+            students will be able to:</font>
+        </font>
+      </span>
+    </div>
+    <div>
+      <table class="grdStyle" cellspacing="0" cellpadding="1" align="Left" grdinit_0="0" grdinit_dee="False"
+        grdinit_dsa="False" grdinit_dsm="False" grdinit_ds_cnt="4" id="grdOgrenmeCiktilari"
+        style="color:#3b3a36;border-color:#e7e7e7;border-width:1px;border-style:None;font-family:Tahoma;font-size:8pt;font-weight:normal;width:100%;border-collapse:collapse;font-size: 10pt; font-family: Tahoma">
+        <tbody>
+          <tr align="left" style="color:#fff;background-color:#6b6b6b;font-weight:normal;height:30px;">
+            <th class="bottom_dotted" align="left" scope="col" style="width:50px;padding:2px;">
+              <font style="vertical-align: inherit;">
+                <font style="vertical-align: inherit;">Sequence No.</font>
+              </font>
+            </th>
+            <th class="bottom_dotted" align="left" scope="col" style="padding:2px;">
+              <font style="vertical-align: inherit;">
+                <font style="vertical-align: inherit;">Explanation</font>
+              </font>
+            </th>
+          </tr>
+
+          {% for outcome in course.course_learning_outcomes.all %}
+          <tr onmouseover="this.originalstyle=this.style.backgroundColor;this.style.backgroundColor='#CCE0FC'"
+            onmouseout="this.style.backgroundColor=this.originalstyle;"
+            style="color:#3b3a36;border-color:#e7e7e7;border-width:1px;border-style:Solid;height:30px;">
+            <td class="bottom_dotted" align="left" style="padding:3px;">
+              <span id="grdOgrenmeCiktilari_Label1_0" style="color:#3A3A3A;font-family:Open Sans;font-size:8pt;">
+                <font style="vertical-align: inherit;">
+                  <font style="vertical-align: inherit;">{{forloop.counter}}</font>
+                </font>
+              </span>
+            </td>
+            <td class="bottom_dotted" align="left" style="padding:3px;">
+              <font style="vertical-align: inherit;">
+                <font style="vertical-align: inherit;">{{outcome}}</font>
+              </font>
+            </td>
+          </tr>
+          {% endfor %}
+
+
+        </tbody>
+      </table>
+    </div>
+
+    <br>
+  </div>
+  <br>
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <span id="lblDersKonulari_h">
+        <font style="vertical-align: inherit;">
+          <font style="vertical-align: inherit;">Course Topics</font>
+        </font>
+      </span>
+    </div>
+    <div>
+      <table class="grdStyle" cellspacing="0" cellpadding="1" align="Left" grdinit_0="0" grdinit_dee="False"
+        grdinit_dsa="False" grdinit_dsm="False" grdinit_ds_cnt="14" id="grdDersKonu"
+        style="color:#3b3a36;border-color:#e7e7e7;border-width:1px;border-style:None;font-family:Tahoma;font-size:8pt;font-weight:normal;width:100%;border-collapse:collapse;">
+        <tbody>
+          <tr align="left" style="color:#fff;background-color:#6b6b6b;font-weight:normal;height:30px;">
+            <th class="bottom_dotted" align="left" scope="col" style="width:50px;padding:2px;">
+              <font style="vertical-align: inherit;">
+                <font style="vertical-align: inherit;">Week</font>
+              </font>
+            </th>
+            <th class="bottom_dotted" align="left" scope="col" style="padding:2px;">
+              <font style="vertical-align: inherit;">
+                <font style="vertical-align: inherit;">Subject</font>
+              </font>
+            </th>
+            <th class="bottom_dotted" align="left" scope="col" style="padding:2px;">
+              <font style="vertical-align: inherit;">
+                <font style="vertical-align: inherit;">Preliminary</font>
+              </font>
+            </th>
+            <th class="bottom_dotted" align="left" scope="col" style="padding:2px;">
+              <font style="vertical-align: inherit;">
+                <font style="vertical-align: inherit;">documents</font>
+              </font>
+            </th>
+          </tr>
+
+          {% for topic in course.course_topics.all %}
+          <tr onmouseover="this.originalstyle=this.style.backgroundColor;this.style.backgroundColor='#CCE0FC'"
+            onmouseout="this.style.backgroundColor=this.originalstyle;"
+            style="color:#3b3a36;border-color:#e7e7e7;border-width:1px;border-style:Solid;height:30px;">
+            <td class="bottom_dotted" align="left" style="padding:3px;">
+              <font style="vertical-align: inherit;">
+                <font style="vertical-align: inherit;">{{topic.week_no}}</font>
+              </font>
+            </td>
+            <td class="bottom_dotted" align="left" style="padding:3px;">
+              <span id="grdDersKonu_Label1_0" style="color:#3A3A3A;font-family:Open Sans;font-size:8pt;">
+                <font style="vertical-align: inherit;">
+                  <font style="vertical-align: inherit;">{{topic}}</font>
+                </font>
+              </span>
+            </td>
+            <td class="bottom_dotted" align="left" style="padding:3px;">
+              <span id="grdDersKonu_Label2_0" style="color:#3A3A3A;font-family:Open Sans;font-size:8pt;"></span>
+            </td>
+            <td class="bottom_dotted" align="left" style="padding:3px;">
+              <span id="grdDersKonu_Label3_0" style="color:#3A3A3A;font-family:Open Sans;font-size:8pt;"></span>
+            </td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+  <br>
+  <div class="panel panel-default">
+    <div class="panel-heading">
+
+    </div>
+
+
+  </div>
+  <br>
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <span id="lblDersProgCiktiKatki_h">
+        <font style="vertical-align: inherit;">
+          <font style="vertical-align: inherit;">Contribution of the Course to Program Outcomes</font>
+        </font>
+      </span>
+    </div>
+    <div>
+      <table class="grdStyle" cellspacing="0" cellpadding="1" align="Left" grdinit_0="0" grdinit_dee="False"
+        grdinit_dsa="False" grdinit_dsm="False" grdinit_ds_cnt="5" id="grdProgCiktiKatki"
+        style="color:#3b3a36;border-color:#e7e7e7;border-width:1px;border-style:None;font-family:Tahoma;font-size:8pt;font-weight:normal;width:100%;border-collapse:collapse;font-size: 10pt; font-family: Tahoma">
+        <tbody>
+          <tr class="text-white" align="left"
+            style="color:#fff;background-color:#6b6b6b;font-weight:normal;height:30px;">
+            <th class="bottom_right_dotted" align="left" scope="col" style="width:45px;padding:2px;"><a
+                href="javascript:__doPostBack('grdProgCiktiKatki','Sort$SIRA')" style="color:#fff;"></a></th>
+            <th class="grdHeaderCenter" align="center" scope="col" style="padding:2px;">
+              <span id="grdProgCiktiKatki_lblHP1"
+                title="Adequate knowledge of mathematics, science and related engineering disciplines;  ability to use institutional and applied knowledge in these fields in complex engineering problems."
+                class="text-white" style="color:#3A3A3A;font-family:Open Sans;font-size:8pt;">
+                <font style="vertical-align: inherit;">
+                  <font style="vertical-align: inherit;">P1</font>
+                </font>
+              </span>
+
+            </th>
+            <th class="grdHeaderCenter" align="center" scope="col" style="padding:2px;">
+              <span id="grdProgCiktiKatki_lblHP2"
+                title="Ability to identify, define, formulate and solve complex engineering problems;  ability to select and apply appropriate analysis and modeling methods for this purpose."
+                class="text-white" style="color:#3A3A3A;font-family:Open Sans;font-size:8pt;">
+                <font style="vertical-align: inherit;">
+                  <font style="vertical-align: inherit;">P2</font>
+                </font>
+              </span>
+            </th>
+            <th class="grdHeaderCenter" align="center" scope="col" style="padding:2px;">
+              <span id="grdProgCiktiKatki_lblHP3"
+                title="Ability to design a complex system, process, device or product to meet specific requirements under realistic constraints and conditions;  ability to apply modern design methods for this purpose."
+                class="text-white" style="color:#3A3A3A;font-family:Open Sans;font-size:8pt;">
+                <font style="vertical-align: inherit;">
+                  <font style="vertical-align: inherit;">P3</font>
+                </font>
+              </span>
+            </th>
+            <th class="grdHeaderCenter" align="center" scope="col" style="padding:2px;">
+              <span id="grdProgCiktiKatki_lblHP4"
+                title="Ability to develop, select and use modern techniques and tools necessary for the analysis and solution of complex problems encountered in engineering practice;  Ability to use information technologies effectively."
+                class="text-white" style="color:#3A3A3A;font-family:Open Sans;font-size:8pt;">
+                <font style="vertical-align: inherit;">
+                  <font style="vertical-align: inherit;">P4</font>
+                </font>
+              </span>
+            </th>
+            <th class="grdHeaderCenter" align="center" scope="col" style="padding:2px;">
+              <span id="grdProgCiktiKatki_lblHP5"
+                title="Ability to design and conduct experiments, collect data, analyze and interpret results for the study of complex engineering problems or discipline-specific research topics."
+                class="text-white" style="color:#3A3A3A;font-family:Open Sans;font-size:8pt;">
+                <font style="vertical-align: inherit;">
+                  <font style="vertical-align: inherit;">P5</font>
+                </font>
+              </span>
+            </th>
+            <th class="grdHeaderCenter" align="center" scope="col" style="padding:2px;">
+              <span id="grdProgCiktiKatki_lblHP6"
+                title="Ability to work effectively in disciplinary and multi-disciplinary teams;  individual working skills."
+                class="text-white" style="color:#3A3A3A;font-family:Open Sans;font-size:8pt;">
+                <font style="vertical-align: inherit;">
+                  <font style="vertical-align: inherit;">P6</font>
+                </font>
+              </span>
+            </th>
+            <th class="grdHeaderCenter" align="center" scope="col" style="padding:2px;">
+              <span id="grdProgCiktiKatki_lblHP7"
+                title="Ability to communicate effectively in Turkish orally and in writing;  knowledge of at least one foreign language;  ability to write effective reports and understand written reports, to prepare design and production reports, to make effective presentations, to give and receive clear and understandable instructions."
+                class="text-white" style="color:#3A3A3A;font-family:Open Sans;font-size:8pt;">
+                <font style="vertical-align: inherit;">
+                  <font style="vertical-align: inherit;">P7</font>
+                </font>
+              </span>
+            </th>
+            <th class="grdHeaderCenter" align="center" scope="col" style="padding:2px;">
+              <span id="grdProgCiktiKatki_lblHP8"
+                title="Awareness of the necessity of lifelong learning;  the ability to access information, follow developments in science and technology, and constantly renew oneself."
+                class="text-white" style="color:#3A3A3A;font-family:Open Sans;font-size:8pt;">
+                <font style="vertical-align: inherit;">
+                  <font style="vertical-align: inherit;">P8</font>
+                </font>
+              </span>
+            </th>
+            <th class="grdHeaderCenter" align="center" scope="col" style="padding:2px;">
+              <span id="grdProgCiktiKatki_lblHP9"
+                title="Behaving in accordance with ethical principles, awareness of professional and ethical responsibility;  information about standards used in engineering applications"
+                class="text-white" style="color:#3A3A3A;font-family:Open Sans;font-size:8pt;">
+                <font style="vertical-align: inherit;">
+                  <font style="vertical-align: inherit;">P9</font>
+                </font>
+              </span>
+            </th>
+            <th class="grdHeaderCenter" align="center" scope="col" style="padding:2px;">
+              <span id="grdProgCiktiKatki_lblHP10"
+                title="Knowledge of business practices such as project management, risk management and change management;  awareness of entrepreneurship, innovation;  information about sustainable development."
+                class="text-white" style="color:#3A3A3A;font-family:Open Sans;font-size:8pt;">
+                <font style="vertical-align: inherit;">
+                  <font style="vertical-align: inherit;">P10</font>
+                </font>
+              </span>
+            </th>
+            <th class="grdHeaderCenter" align="center" scope="col" style="padding:2px;">
+              <span id="grdProgCiktiKatki_lblHP11"
+                title="Information about the effects of engineering practices on health, environment and safety in universal and social dimensions and the problems of the age reflected in the field of engineering;  awareness of the legal consequences of engineering solutions."
+                class="text-white" style="color:#3A3A3A;font-family:Open Sans;font-size:8pt;">
+                <font style="vertical-align: inherit;">
+                  <font style="vertical-align: inherit;">P11</font>
+                </font>
+              </span>
+            </th>
+            <th class="grdHeaderCenter" align="center" scope="col" style="padding:2px;">
+              <span id="grdProgCiktiKatki_lblHP12"
+                title="Ability to develop complex software systems, including coding, validation, testing and debugging.	"
+                class="text-white" style="color:#3A3A3A;font-family:Open Sans;font-size:8pt;">
+                <font style="vertical-align: inherit;">
+                  <font style="vertical-align: inherit;">P12</font>
+                </font>
+              </span>
+            </th>
+          </tr>
+          <tr onmouseover="this.originalstyle=this.style.backgroundColor;this.style.backgroundColor='#CCE0FC'"
+            onmouseout="this.style.backgroundColor=this.originalstyle;"
+            style="color:#3b3a36;border-color:#e7e7e7;border-width:1px;border-style:Solid;height:30px;">
+            <td class="bottom_right_dotted text-white" align="left" style="background-color:#535456;padding:3px;">
+              <span id="grdProgCiktiKatki_lblSira_0" title="General" class="text-white"
+                style="color:#3A3A3A;font-family:Open Sans;font-size:8pt;">
+                <font style="vertical-align: inherit;">
+                  <font style="vertical-align: inherit;">All</font>
+                </font>
+              </span>
+
+
+            </td>
+            <td class="grdHeaderCenter" align="center" style="padding:3px;">
+              <span id="grdProgCiktiKatki_lblP1_0"
+                style="display:inline-block;color:#3A3A3A;font-family:Open Sans;font-size:8pt;width:15px;font-size: 10pt; font-family: Tahoma">
+                <font style="vertical-align: inherit;">
+                  <font style="vertical-align: inherit;">3</font>
+                </font>
+              </span>
+            </td>
+            <td class="grdHeaderCenter" align="center" style="padding:3px;">
+              <span id="grdProgCiktiKatki_lblP2_0"
+                style="display:inline-block;color:#3A3A3A;font-family:Open Sans;font-size:8pt;width:15px;font-size: 10pt; font-family: Tahoma"></span>
+            </td>
+            <td class="grdHeaderCenter" align="center" style="padding:3px;">
+              <span id="grdProgCiktiKatki_lblP3_0"
+                style="display:inline-block;color:#3A3A3A;font-family:Open Sans;font-size:8pt;width:15px;font-size: 10pt; font-family: Tahoma"></span>
+            </td>
+            <td class="grdHeaderCenter" align="center" style="padding:3px;">
+              <span id="grdProgCiktiKatki_lblP4_0"
+                style="display:inline-block;color:#3A3A3A;font-family:Open Sans;font-size:8pt;width:15px;font-size: 10pt; font-family: Tahoma"></span>
+            </td>
+            <td class="grdHeaderCenter" align="center" style="padding:3px;">
+              <span id="grdProgCiktiKatki_lblP5_0"
+                style="display:inline-block;color:#3A3A3A;font-family:Open Sans;font-size:8pt;width:15px;font-size: 10pt; font-family: Tahoma"></span>
+            </td>
+            <td class="grdHeaderCenter" align="center" style="padding:3px;">
+              <span id="grdProgCiktiKatki_lblP6_0"
+                style="display:inline-block;color:#3A3A3A;font-family:Open Sans;font-size:8pt;width:15px;font-size: 10pt; font-family: Tahoma"></span>
+            </td>
+            <td class="grdHeaderCenter" align="center" style="padding:3px;">
+              <span id="grdProgCiktiKatki_lblP7_0"
+                style="display:inline-block;color:#3A3A3A;font-family:Open Sans;font-size:8pt;width:15px;font-size: 10pt; font-family: Tahoma"></span>
+            </td>
+            <td class="grdHeaderCenter" align="center" style="padding:3px;">
+              <span id="grdProgCiktiKatki_lblP8_0"
+                style="display:inline-block;color:#3A3A3A;font-family:Open Sans;font-size:8pt;width:15px;font-size: 10pt; font-family: Tahoma"></span>
+            </td>
+            <td class="grdHeaderCenter" align="center" style="padding:3px;">
+              <span id="grdProgCiktiKatki_lblP9_0"
+                style="display:inline-block;color:#3A3A3A;font-family:Open Sans;font-size:8pt;width:15px;font-size: 10pt; font-family: Tahoma"></span>
+            </td>
+            <td class="grdHeaderCenter" align="center" style="padding:3px;">
+              <span id="grdProgCiktiKatki_lblP10_0"
+                style="display:inline-block;color:#3A3A3A;font-family:Open Sans;font-size:8pt;width:15px;font-size: 10pt; font-family: Tahoma"></span>
+            </td>
+            <td class="grdHeaderCenter" align="center" style="padding:3px;">
+              <span id="grdProgCiktiKatki_lblP11_0"
+                style="display:inline-block;color:#3A3A3A;font-family:Open Sans;font-size:8pt;width:15px;font-size: 10pt; font-family: Tahoma"></span>
+            </td>
+            <td class="grdHeaderCenter" align="center" style="padding:3px;">
+              <span id="grdProgCiktiKatki_lblP12_0"
+                style="display:inline-block;color:#3A3A3A;font-family:Open Sans;font-size:8pt;width:15px;font-size: 10pt; font-family: Tahoma">
+                <font style="vertical-align: inherit;">
+                  <font style="vertical-align: inherit;">4</font>
+                </font>
+              </span>
+            </td>
+          </tr>
+          <tr onmouseover="this.originalstyle=this.style.backgroundColor;this.style.backgroundColor='#CCE0FC'"
+            onmouseout="this.style.backgroundColor=this.originalstyle;"
+            style="color:#3b3a36;background-color:White;border-color:#e7e7e7;border-width:1px;border-style:Solid;height:30px;">
+            <td class="bottom_right_dotted text-white" align="left" style="background-color:#535456;padding:3px;">
+              <span id="grdProgCiktiKatki_lblSira_1"
+                title="Explain what design is and how various types of design deal with different aspects of the product"
+                class="text-white" style="color:#3A3A3A;font-family:Open Sans;font-size:8pt;">
+                <font style="vertical-align: inherit;">
+                  <font style="vertical-align: inherit;">S1</font>
+                </font>
+              </span>
+
+
+            </td>
+            <td class="grdHeaderCenter" align="center" style="padding:3px;">
+              <span id="grdProgCiktiKatki_lblP1_1"
+                style="display:inline-block;color:#3A3A3A;font-family:Open Sans;font-size:8pt;width:15px;font-size: 10pt; font-family: Tahoma"></span>
+            </td>
+            <td class="grdHeaderCenter" align="center" style="padding:3px;">
+              <span id="grdProgCiktiKatki_lblP2_1"
+                style="display:inline-block;color:#3A3A3A;font-family:Open Sans;font-size:8pt;width:15px;font-size: 10pt; font-family: Tahoma"></span>
+            </td>
+            <td class="grdHeaderCenter" align="center" style="padding:3px;">
+              <span id="grdProgCiktiKatki_lblP3_1"
+                style="display:inline-block;color:#3A3A3A;font-family:Open Sans;font-size:8pt;width:15px;font-size: 10pt; font-family: Tahoma"></span>
+            </td>
+            <td class="grdHeaderCenter" align="center" style="padding:3px;">
+              <span id="grdProgCiktiKatki_lblP4_1"
+                style="display:inline-block;color:#3A3A3A;font-family:Open Sans;font-size:8pt;width:15px;font-size: 10pt; font-family: Tahoma"></span>
+            </td>
+            <td class="grdHeaderCenter" align="center" style="padding:3px;">
+              <span id="grdProgCiktiKatki_lblP5_1"
+                style="display:inline-block;color:#3A3A3A;font-family:Open Sans;font-size:8pt;width:15px;font-size: 10pt; font-family: Tahoma"></span>
+            </td>
+            <td class="grdHeaderCenter" align="center" style="padding:3px;">
+              <span id="grdProgCiktiKatki_lblP6_1"
+                style="display:inline-block;color:#3A3A3A;font-family:Open Sans;font-size:8pt;width:15px;font-size: 10pt; font-family: Tahoma"></span>
+            </td>
+            <td class="grdHeaderCenter" align="center" style="padding:3px;">
+              <span id="grdProgCiktiKatki_lblP7_1"
+                style="display:inline-block;color:#3A3A3A;font-family:Open Sans;font-size:8pt;width:15px;font-size: 10pt; font-family: Tahoma"></span>
+            </td>
+            <td class="grdHeaderCenter" align="center" style="padding:3px;">
+              <span id="grdProgCiktiKatki_lblP8_1"
+                style="display:inline-block;color:#3A3A3A;font-family:Open Sans;font-size:8pt;width:15px;font-size: 10pt; font-family: Tahoma"></span>
+            </td>
+            <td class="grdHeaderCenter" align="center" style="padding:3px;">
+              <span id="grdProgCiktiKatki_lblP9_1"
+                style="display:inline-block;color:#3A3A3A;font-family:Open Sans;font-size:8pt;width:15px;font-size: 10pt; font-family: Tahoma"></span>
+            </td>
+            <td class="grdHeaderCenter" align="center" style="padding:3px;">
+              <span id="grdProgCiktiKatki_lblP10_1"
+                style="display:inline-block;color:#3A3A3A;font-family:Open Sans;font-size:8pt;width:15px;font-size: 10pt; font-family: Tahoma"></span>
+            </td>
+            <td class="grdHeaderCenter" align="center" style="padding:3px;">
+              <span id="grdProgCiktiKatki_lblP11_1"
+                style="display:inline-block;color:#3A3A3A;font-family:Open Sans;font-size:8pt;width:15px;font-size: 10pt; font-family: Tahoma"></span>
+            </td>
+            <td class="grdHeaderCenter" align="center" style="padding:3px;">
+              <span id="grdProgCiktiKatki_lblP12_1"
+                style="display:inline-block;color:#3A3A3A;font-family:Open Sans;font-size:8pt;width:15px;font-size: 10pt; font-family: Tahoma"></span>
+            </td>
+          </tr>
+          <tr onmouseover="this.originalstyle=this.style.backgroundColor;this.style.backgroundColor='#CCE0FC'"
+            onmouseout="this.style.backgroundColor=this.originalstyle;"
+            style="color:#3b3a36;border-color:#e7e7e7;border-width:1px;border-style:Solid;height:30px;">
+            <td class="bottom_right_dotted text-white" align="left" style="background-color:#535456;padding:3px;">
+              <span id="grdProgCiktiKatki_lblSira_2"
+                title="Presents design as a problem-solving activity, reveals the role of abstraction and modeling in design"
+                class="text-white" style="color:#3A3A3A;font-family:Open Sans;font-size:8pt;">
+                <font style="vertical-align: inherit;">
+                  <font style="vertical-align: inherit;">S2</font>
+                </font>
+              </span>
+
+
+            </td>
+            <td class="grdHeaderCenter" align="center" style="padding:3px;">
+              <span id="grdProgCiktiKatki_lblP1_2"
+                style="display:inline-block;color:#3A3A3A;font-family:Open Sans;font-size:8pt;width:15px;font-size: 10pt; font-family: Tahoma"></span>
+            </td>
+            <td class="grdHeaderCenter" align="center" style="padding:3px;">
+              <span id="grdProgCiktiKatki_lblP2_2"
+                style="display:inline-block;color:#3A3A3A;font-family:Open Sans;font-size:8pt;width:15px;font-size: 10pt; font-family: Tahoma"></span>
+            </td>
+            <td class="grdHeaderCenter" align="center" style="padding:3px;">
+              <span id="grdProgCiktiKatki_lblP3_2"
+                style="display:inline-block;color:#3A3A3A;font-family:Open Sans;font-size:8pt;width:15px;font-size: 10pt; font-family: Tahoma"></span>
+            </td>
+            <td class="grdHeaderCenter" align="center" style="padding:3px;">
+              <span id="grdProgCiktiKatki_lblP4_2"
+                style="display:inline-block;color:#3A3A3A;font-family:Open Sans;font-size:8pt;width:15px;font-size: 10pt; font-family: Tahoma"></span>
+            </td>
+            <td class="grdHeaderCenter" align="center" style="padding:3px;">
+              <span id="grdProgCiktiKatki_lblP5_2"
+                style="display:inline-block;color:#3A3A3A;font-family:Open Sans;font-size:8pt;width:15px;font-size: 10pt; font-family: Tahoma"></span>
+            </td>
+            <td class="grdHeaderCenter" align="center" style="padding:3px;">
+              <span id="grdProgCiktiKatki_lblP6_2"
+                style="display:inline-block;color:#3A3A3A;font-family:Open Sans;font-size:8pt;width:15px;font-size: 10pt; font-family: Tahoma"></span>
+            </td>
+            <td class="grdHeaderCenter" align="center" style="padding:3px;">
+              <span id="grdProgCiktiKatki_lblP7_2"
+                style="display:inline-block;color:#3A3A3A;font-family:Open Sans;font-size:8pt;width:15px;font-size: 10pt; font-family: Tahoma"></span>
+            </td>
+            <td class="grdHeaderCenter" align="center" style="padding:3px;">
+              <span id="grdProgCiktiKatki_lblP8_2"
+                style="display:inline-block;color:#3A3A3A;font-family:Open Sans;font-size:8pt;width:15px;font-size: 10pt; font-family: Tahoma"></span>
+            </td>
+            <td class="grdHeaderCenter" align="center" style="padding:3px;">
+              <span id="grdProgCiktiKatki_lblP9_2"
+                style="display:inline-block;color:#3A3A3A;font-family:Open Sans;font-size:8pt;width:15px;font-size: 10pt; font-family: Tahoma"></span>
+            </td>
+            <td class="grdHeaderCenter" align="center" style="padding:3px;">
+              <span id="grdProgCiktiKatki_lblP10_2"
+                style="display:inline-block;color:#3A3A3A;font-family:Open Sans;font-size:8pt;width:15px;font-size: 10pt; font-family: Tahoma"></span>
+            </td>
+            <td class="grdHeaderCenter" align="center" style="padding:3px;">
+              <span id="grdProgCiktiKatki_lblP11_2"
+                style="display:inline-block;color:#3A3A3A;font-family:Open Sans;font-size:8pt;width:15px;font-size: 10pt; font-family: Tahoma"></span>
+            </td>
+            <td class="grdHeaderCenter" align="center" style="padding:3px;">
+              <span id="grdProgCiktiKatki_lblP12_2"
+                style="display:inline-block;color:#3A3A3A;font-family:Open Sans;font-size:8pt;width:15px;font-size: 10pt; font-family: Tahoma"></span>
+            </td>
+          </tr>
+          <tr onmouseover="this.originalstyle=this.style.backgroundColor;this.style.backgroundColor='#CCE0FC'"
+            onmouseout="this.style.backgroundColor=this.originalstyle;"
+            style="color:#3b3a36;background-color:White;border-color:#e7e7e7;border-width:1px;border-style:Solid;height:30px;">
+            <td class="bottom_right_dotted text-white" align="left" style="background-color:#535456;padding:3px;">
+              <span id="grdProgCiktiKatki_lblSira_3" title="Locates design in the software lifecycle" class="text-white"
+                style="color:#3A3A3A;font-family:Open Sans;font-size:8pt;">
+                <font style="vertical-align: inherit;">
+                  <font style="vertical-align: inherit;">S3</font>
+                </font>
+              </span>
+
+
+            </td>
+            <td class="grdHeaderCenter" align="center" style="padding:3px;">
+              <span id="grdProgCiktiKatki_lblP1_3"
+                style="display:inline-block;color:#3A3A3A;font-family:Open Sans;font-size:8pt;width:15px;font-size: 10pt; font-family: Tahoma"></span>
+            </td>
+            <td class="grdHeaderCenter" align="center" style="padding:3px;">
+              <span id="grdProgCiktiKatki_lblP2_3"
+                style="display:inline-block;color:#3A3A3A;font-family:Open Sans;font-size:8pt;width:15px;font-size: 10pt; font-family: Tahoma"></span>
+            </td>
+            <td class="grdHeaderCenter" align="center" style="padding:3px;">
+              <span id="grdProgCiktiKatki_lblP3_3"
+                style="display:inline-block;color:#3A3A3A;font-family:Open Sans;font-size:8pt;width:15px;font-size: 10pt; font-family: Tahoma"></span>
+            </td>
+            <td class="grdHeaderCenter" align="center" style="padding:3px;">
+              <span id="grdProgCiktiKatki_lblP4_3"
+                style="display:inline-block;color:#3A3A3A;font-family:Open Sans;font-size:8pt;width:15px;font-size: 10pt; font-family: Tahoma"></span>
+            </td>
+            <td class="grdHeaderCenter" align="center" style="padding:3px;">
+              <span id="grdProgCiktiKatki_lblP5_3"
+                style="display:inline-block;color:#3A3A3A;font-family:Open Sans;font-size:8pt;width:15px;font-size: 10pt; font-family: Tahoma"></span>
+            </td>
+            <td class="grdHeaderCenter" align="center" style="padding:3px;">
+              <span id="grdProgCiktiKatki_lblP6_3"
+                style="display:inline-block;color:#3A3A3A;font-family:Open Sans;font-size:8pt;width:15px;font-size: 10pt; font-family: Tahoma"></span>
+            </td>
+            <td class="grdHeaderCenter" align="center" style="padding:3px;">
+              <span id="grdProgCiktiKatki_lblP7_3"
+                style="display:inline-block;color:#3A3A3A;font-family:Open Sans;font-size:8pt;width:15px;font-size: 10pt; font-family: Tahoma"></span>
+            </td>
+            <td class="grdHeaderCenter" align="center" style="padding:3px;">
+              <span id="grdProgCiktiKatki_lblP8_3"
+                style="display:inline-block;color:#3A3A3A;font-family:Open Sans;font-size:8pt;width:15px;font-size: 10pt; font-family: Tahoma"></span>
+            </td>
+            <td class="grdHeaderCenter" align="center" style="padding:3px;">
+              <span id="grdProgCiktiKatki_lblP9_3"
+                style="display:inline-block;color:#3A3A3A;font-family:Open Sans;font-size:8pt;width:15px;font-size: 10pt; font-family: Tahoma"></span>
+            </td>
+            <td class="grdHeaderCenter" align="center" style="padding:3px;">
+              <span id="grdProgCiktiKatki_lblP10_3"
+                style="display:inline-block;color:#3A3A3A;font-family:Open Sans;font-size:8pt;width:15px;font-size: 10pt; font-family: Tahoma"></span>
+            </td>
+            <td class="grdHeaderCenter" align="center" style="padding:3px;">
+              <span id="grdProgCiktiKatki_lblP11_3"
+                style="display:inline-block;color:#3A3A3A;font-family:Open Sans;font-size:8pt;width:15px;font-size: 10pt; font-family: Tahoma"></span>
+            </td>
+            <td class="grdHeaderCenter" align="center" style="padding:3px;">
+              <span id="grdProgCiktiKatki_lblP12_3"
+                style="display:inline-block;color:#3A3A3A;font-family:Open Sans;font-size:8pt;width:15px;font-size: 10pt; font-family: Tahoma"></span>
+            </td>
+          </tr>
+          <tr onmouseover="this.originalstyle=this.style.backgroundColor;this.style.backgroundColor='#CCE0FC'"
+            onmouseout="this.style.backgroundColor=this.originalstyle;"
+            style="color:#3b3a36;border-color:#e7e7e7;border-width:1px;border-style:Solid;height:30px;">
+            <td class="bottom_right_dotted text-white" align="left" style="background-color:#535456;padding:3px;">
+              <span id="grdProgCiktiKatki_lblSira_4" title="Understands design methods in software engineering"
+                class="text-white" style="color:#3A3A3A;font-family:Open Sans;font-size:8pt;">
+                <font style="vertical-align: inherit;">
+                  <font style="vertical-align: inherit;">S4</font>
+                </font>
+              </span>
+
+
+            </td>
+            <td class="grdHeaderCenter" align="center" style="padding:3px;">
+              <span id="grdProgCiktiKatki_lblP1_4"
+                style="display:inline-block;color:#3A3A3A;font-family:Open Sans;font-size:8pt;width:15px;font-size: 10pt; font-family: Tahoma"></span>
+            </td>
+            <td class="grdHeaderCenter" align="center" style="padding:3px;">
+              <span id="grdProgCiktiKatki_lblP2_4"
+                style="display:inline-block;color:#3A3A3A;font-family:Open Sans;font-size:8pt;width:15px;font-size: 10pt; font-family: Tahoma"></span>
+            </td>
+            <td class="grdHeaderCenter" align="center" style="padding:3px;">
+              <span id="grdProgCiktiKatki_lblP3_4"
+                style="display:inline-block;color:#3A3A3A;font-family:Open Sans;font-size:8pt;width:15px;font-size: 10pt; font-family: Tahoma"></span>
+            </td>
+            <td class="grdHeaderCenter" align="center" style="padding:3px;">
+              <span id="grdProgCiktiKatki_lblP4_4"
+                style="display:inline-block;color:#3A3A3A;font-family:Open Sans;font-size:8pt;width:15px;font-size: 10pt; font-family: Tahoma"></span>
+            </td>
+            <td class="grdHeaderCenter" align="center" style="padding:3px;">
+              <span id="grdProgCiktiKatki_lblP5_4"
+                style="display:inline-block;color:#3A3A3A;font-family:Open Sans;font-size:8pt;width:15px;font-size: 10pt; font-family: Tahoma"></span>
+            </td>
+            <td class="grdHeaderCenter" align="center" style="padding:3px;">
+              <span id="grdProgCiktiKatki_lblP6_4"
+                style="display:inline-block;color:#3A3A3A;font-family:Open Sans;font-size:8pt;width:15px;font-size: 10pt; font-family: Tahoma"></span>
+            </td>
+            <td class="grdHeaderCenter" align="center" style="padding:3px;">
+              <span id="grdProgCiktiKatki_lblP7_4"
+                style="display:inline-block;color:#3A3A3A;font-family:Open Sans;font-size:8pt;width:15px;font-size: 10pt; font-family: Tahoma"></span>
+            </td>
+            <td class="grdHeaderCenter" align="center" style="padding:3px;">
+              <span id="grdProgCiktiKatki_lblP8_4"
+                style="display:inline-block;color:#3A3A3A;font-family:Open Sans;font-size:8pt;width:15px;font-size: 10pt; font-family: Tahoma"></span>
+            </td>
+            <td class="grdHeaderCenter" align="center" style="padding:3px;">
+              <span id="grdProgCiktiKatki_lblP9_4"
+                style="display:inline-block;color:#3A3A3A;font-family:Open Sans;font-size:8pt;width:15px;font-size: 10pt; font-family: Tahoma"></span>
+            </td>
+            <td class="grdHeaderCenter" align="center" style="padding:3px;">
+              <span id="grdProgCiktiKatki_lblP10_4"
+                style="display:inline-block;color:#3A3A3A;font-family:Open Sans;font-size:8pt;width:15px;font-size: 10pt; font-family: Tahoma"></span>
+            </td>
+            <td class="grdHeaderCenter" align="center" style="padding:3px;">
+              <span id="grdProgCiktiKatki_lblP11_4"
+                style="display:inline-block;color:#3A3A3A;font-family:Open Sans;font-size:8pt;width:15px;font-size: 10pt; font-family: Tahoma"></span>
+            </td>
+            <td class="grdHeaderCenter" align="center" style="padding:3px;">
+              <span id="grdProgCiktiKatki_lblP12_4"
+                style="display:inline-block;color:#3A3A3A;font-family:Open Sans;font-size:8pt;width:15px;font-size: 10pt; font-family: Tahoma"></span>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <br>
+    <span id="lblKatkiDuzeyAciklama"
+      style="color:#3A3A3A;font-family:Open Sans;font-size:8pt;font-size: 10pt; color: navy; font-family: Tahoma">
+      <font style="vertical-align: inherit;">
+        <font style="vertical-align: inherit;">Additive Level: 1: Very Low 2: Low 3: Medium 4: High 5: Very High</font>
+      </font>
+    </span>
+
+  </div>
+  </br>
+  </br>
+  </br>
+  </br>
+
+</div>
+{% endblock%}

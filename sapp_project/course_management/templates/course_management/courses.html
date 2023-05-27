@@ -1,0 +1,99 @@
+{% extends 'course_management/home.html' %}
+{% load crispy_forms_tags %}
+
+
+
+{% block homecontent%}
+<div>
+    <h3 style="padding-left: 2rem;">My Courses</h3>
+    <div>
+        <ul style="list-style-type: none;">
+            <li style="padding-right: 2rem;">
+                <table class="table table-striped table-dark table-hover">
+
+                    <form action="{% url 'courses' %}" method="POST" id="my-form">
+                        {% csrf_token %}
+                        <label for="semester_select">Semester*</label>
+                        <select class="form-select"
+                            style="background-color: rgba(187, 213, 234, 0.975); border-radius: 0%;"
+                            id="semester_select" name="semester_select" aria-label="Default select example"
+                            style="border-radius: 0%;">
+                            {%if selected == 'all' %}
+                            <option disabled>Select an option</option>
+                            <option selected value="all">all</option>
+                            <option value="Spring Semester">{{year}} Spring Semester</option>
+                            <option value="Fall Semester">{{year}} Fall Semester</option>
+                            {% elif selected == 'Spring Semester' %}
+                            <option disabled>Select an option</option>
+                            <option value="all">all</option>
+                            <option selected value="Spring Semester">{{year}} Spring Semester</option>
+                            <option value="Fall Semester">{{year}} Fall Semester</option>
+                            {% elif selected == 'Fall Semester' %}
+                            <option selected disabled>Select an option</option>
+                            <option value="all">all</option>
+                            <option value="Spring Semester">{{year}} Spring Semester</option>
+                            <option selected value="Fall Semester">{{year}} Fall Semester</option>
+                            {% else%}
+                            <option selected disabled>Select an option</option>
+                            <option value="all">all</option>
+                            <option value="Spring Semester">{{year}} Spring Semester</option>
+                            <option value="Fall Semester">{{year}} Fall Semester</option>
+                            {% endif%}
+
+                        </select>
+                    </form>
+                    <thead>
+                        <tr>
+                            <th scope="col">No</th>
+                            <th scope="col">Course Code</th>
+                            <th scope="col">Course Name</th>
+                            <th scope="col">Credits</th>
+                            <th scope="col">Class</th>
+                            <th scope="col">Semester</th>
+                            <th scope="col">St No</th>
+                            <th scope="col"></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for course in courses%}
+                        <tr>
+                            <th scope="row">{{forloop.counter}}</th>
+                            <td>{{course.course_code}}</td>
+                            <td>{{course.course_name}}</td>
+                            <td>{{course.credit}}</td>
+                            <td>{{course.class_no}}</td>
+                            <td>{{course.semester}}</td>
+                            <td>{{course.number_of_students}}</td>
+                            <td><a href="{% url 'course-info' course.id %}" class="btn btn-outline-light">course
+                                    details</a></td>
+                        </tr>
+                        {% endfor %}
+
+                    </tbody>
+                </table>
+            </li>
+        </ul>
+    </div>
+
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            $('#s_customize').on('change', function () {
+                $('#c_customize_form').submit();
+            });
+        });
+    </script>
+
+    <script>
+        $(document).ready(function () {
+            $('#semester_select').on('change', function () {
+                $('#my-form').submit();
+            });
+        });
+    </script>
+
+</div>
+
+{% endblock %}

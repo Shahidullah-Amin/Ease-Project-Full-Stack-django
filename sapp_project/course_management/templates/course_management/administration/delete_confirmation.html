@@ -1,0 +1,16 @@
+{% extends 'course_management/administration/admin_home.html' %}
+
+
+{% block homecontent %}
+
+<div class="jumbotron" style="margin: 3rem;">
+    <h4 class="display-6">Delete Confirmation</h4>
+    <p class="lead">Are you sure to delete '<span style="color: rgb(180, 9, 9);">{{teacher.first_name}} {{teacher.last_name}}</span>'</p>
+    <hr class="my-4">
+    <p class="lead-right">
+        <a class="btn btn-outline-danger btn-lg" href="{% url 'delete-teacher' id %}" role="button">Yes I'm sure</a>
+        <a class="btn btn-secondary btn-lg" href="{% url 'teachers' %}" role="button">Cancel</a>
+    </p>
+</div>
+
+{% endblock %}

@@ -1,0 +1,21 @@
+{% extends 'course_management/administration/admin_home.html' %}
+{% load crispy_forms_tags %}
+
+{% block homecontent %}
+
+<div class="container">
+    <form action="" method="POST" style="padding: 2rem; padding-top: 1rem;">
+        {% csrf_token %}
+        {{ user_form|crispy }}
+        {{ form|crispy }}
+
+        <div style="display: flex; justify-content: center; align-items: center; margin-top: 2rem;">
+            <button class="btn btn-outline-info" type="submit">
+                Edit
+            </button>
+        </div>
+    </form>
+</div>
+
+
+{% endblock %}

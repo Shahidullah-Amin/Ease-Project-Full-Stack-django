@@ -1,0 +1,54 @@
+{% extends 'course_management/base.html' %}
+{% load crispy_forms_tags %}
+{% load static %}
+
+{% block title%}
+<title>Course Managment</title>
+{% endblock %}
+
+
+{% block content%}
+
+<div class="container-sm " style="padding: 0rem 10rem 0rem 10rem;">
+    <section class="vh-100" style="background-color: rgba(10, 20, 56, 0); padding-top: 0%;">
+        <div class="container py-5 h-100">
+            <div class="row d-flex justify-content-center align-items-center h-100" style="padding-top: 0%;">
+                <div class="col col-xl-10">
+                    <div class="card" style="border-radius: 1rem; background-color: hsla(242, 85%, 79%, 0.71);">
+                        <div class="row g-0" style="margin-top: 7rem;">
+                            <div class="col-md-6 col-lg-5 d-none d-md-block" style="margin-top: 0rem;">
+                                <img src="{% static 'images/course_project_img.png' %}"
+                                    alt="login form" class="img-fluid" style="border-radius: 1rem 0 0 1rem;" />
+                            </div>
+                            <div class="col-md-6 col-lg-7 d-flex align-items-center" style="margin-top: 0%;">
+                                <div class="card-body p-4 p-lg-5 text-white">
+
+                                    <form method="POST">
+
+                                        <div class="col-md-0 col-lg-10 d-none d-md-block">
+                                            <img src="{% static 'images/siyah-kurdele-logo.png' %}"
+                                                alt="login form" class="img-fluid" style="border-radius: 1rem 0 0 1rem;" />
+                                        </div>
+
+                                        <h5 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px;color: #393f81; margin-left: 1mm; margin-top: 4mm;">Sign into your
+                                            account</h5>
+
+                                        {% csrf_token %}
+                                        {{form | crispy}}
+                                        <div class="pt-1 mb-4 mt-4">
+                                            <button class="btn btn-dark btn-lg btn-block" type="submit">Login</button>
+                                        </div>
+
+                        
+                                    </form>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+{% endblock%}

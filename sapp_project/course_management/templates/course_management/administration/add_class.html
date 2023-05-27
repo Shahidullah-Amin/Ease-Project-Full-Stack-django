@@ -1,0 +1,72 @@
+{% extends 'course_management/administration/admin_home.html' %}
+{% load crispy_forms_tags %}
+
+{% block homecontent %}
+
+<div class="container">
+    <h2 style="padding-left: 2rem;">Add Class</h2>
+
+    <form method="POST" style="padding-left: 2rem; padding-right: 2rem;" id="class-select-form" >
+        {% csrf_token %}
+        <label for="class-select">Select Class*</label>
+        <select class="form-select" id="class-select" name="class-select" style="border-radius: 0%; background-color: rgba(13, 206, 245, 0.148);"  aria-label="Default select example">
+            <option value="" selected disabled >Select Class</option>
+            {% for op in class_options %}
+            <option {% if selected_class == forloop.counter %} selected {% endif %} value="{{forloop.counter}}">{{op}}</option>
+            {% endfor %}
+        </select>
+    </form>
+
+
+
+
+    <form action="" method="POST" style="padding: 2rem; padding-top: 1rem;">
+        {% csrf_token %}
+
+        {% if not selected_class %}
+        <fieldset disabled>
+            <label for="lesson-select">Select Class*</label>
+            <select class="form-select" id="lesson-select" name="class-select" style="border-radius: 0%;"  aria-label="Default select example">
+                <option value="" selected disabled >Select Lesson</option>
+            </select>
+            {{form|crispy}}
+            <div style="display: flex; justify-content: center; align-items: center; padding-top: 2rem;">
+                <button type="submit" class="btn btn-outline-dark">
+                    Save
+                </button>
+            </div>
+        </fieldset>
+        {% else %}
+        <fieldset>
+            <label for="lesson-select">Select Class*</label>
+            <select class="form-select" id="course" name="course" style="border-radius: 0%;"  aria-label="Default select example">
+                <option value="" disabled >Select Lesson</option>
+                {% for lesson in courses %}
+                    <option value="{{lesson.id}}">{{lesson}}</option>
+                {% endfor %}
+            </select>
+            {{form|crispy}}
+            <div style="display: flex; justify-content: center; align-items: center; padding-top: 2rem;">
+                <button type="submit" class="btn btn-outline-dark">
+                    Save
+                </button>
+            </div>
+        </fieldset>
+
+        {% endif %}    
+    </form>
+
+
+</div>
+
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $('#class-select').on('change', function () {
+            $('#class-select-form').submit();
+        });
+    });
+</script>
+
+{% endblock %}
