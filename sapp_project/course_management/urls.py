@@ -6,6 +6,9 @@ from django.contrib.auth import views as auth_views
 
 urlpatterns = [
     path('' , views.entry , name='login_entry'),
+    path('student-lessons' , views.student_lessons , name='student-lessons'),
+    path('student-home' , views.student_home , name='student-home'),
+    path('student-login' , views.student_login , name='student-login'),
     path('administration/delete-class/<int:id>' , views.delete_class , name='delete-class'),
     path('administration/edit-class/<int:id>' , views.edit_class , name='edit-class'),
     path('administration/add-class' , views.add_class , name='add-class'),
@@ -32,7 +35,7 @@ urlpatterns = [
     path('home' , views.home , name = 'home'),
     path('course-info/<int:id>' , views.details_of_course , name = 'course-info'),
     path('evaluate-lessons' , views.evaluate_course , name='evaluate-lessons'),
-    path('user_login/', auth_views.LoginView.as_view(template_name='course_management/user_login.html') , name='user-login'),
+    path('user_login/', auth_views.LoginView.as_view(redirect_authenticated_user=True,template_name='course_management/user_login.html') , name='user-login'),
     path('logout/', auth_views.LogoutView.as_view() , name='logout'),
 
 ]

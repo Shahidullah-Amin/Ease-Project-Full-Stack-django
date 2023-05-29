@@ -1,0 +1,57 @@
+{% extends 'course_management/base.html' %}
+{% load crispy_forms_tags %}
+{% load static %}
+
+{% block title%}
+<title>Course Managment</title>
+{% endblock %}
+
+
+{% block content%}
+
+<div class="container" style="padding-left: 20rem;padding-right: 20rem;">
+
+    
+    <form method="POST" style="background-color: aliceblue; color: black; padding: 2rem; border-radius: 10px;">
+        
+        {% csrf_token %}
+        
+        <div class="form-label" style="display: flex; justify-content: center; align-items: center; margin-bottom: 3rem;">
+            <img src="{% static 'images/siyah-kurdele-logo.png' %}" alt="login form" class="img-fluid"
+                style="border-radius: 1rem 0 0 1rem; height: 7rem;" />
+        </div>
+        <div class="form-outline mb-4">
+            <h3>Student Login</h3>
+        </div>
+
+        <div class="form-outline mb-4">
+            <label class="form-label" for="form3Example3">Username*</label>
+            <input type="text" name="username" id="usernaem" {% if username %} value="{{username}}" {% endif %} placeholder="Username" class="form-control {%if user_error %} is-invalid {% endif %}" />
+        </div>
+
+        <div class="form-outline mb-4">
+            <label class="form-label" for="form3Example4">Password*</label>
+            <input type="password" name="password" id="password" placeholder="Password" class="form-control {%if user_error %} is-invalid {% endif %} " />
+        </div>
+
+        <div class="form-check d-flex justify-content-left mb-4">
+            <input class="form-check-input me-2" type="checkbox" name="remember_me" id="remember_me" />
+            <label class="form-check-label" for="form2Example33">
+                Remeber Me
+            </label>
+        </div>
+        {% if user_error %}
+        <div class="form-check d-flex justify-content-left mb-4">
+            <ul class="text-danger">
+                <li>{{user_error}}</li>
+            </ul>
+        </div>
+        {% endif %}
+        <div style="display: flex; justify-content: center; margin: 2rem;">
+            <button type="submit" class="btn btn-outline-primary btn-block mb-4" style="background-color: rgb(2, 2, 80);">
+                Log In
+            </button>
+        </div>
+    </form>
+</div>
+{% endblock%}
